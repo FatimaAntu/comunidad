@@ -18,7 +18,7 @@ public class App extends Application {
         stage.setScene(scene);
         
         stage.sizeToScene(); 
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.show();
     }
 
