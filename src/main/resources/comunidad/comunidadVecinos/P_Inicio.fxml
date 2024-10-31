@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Region?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="905.0" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="905.0" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_Inicio">
    <children>
       <Region layoutY="-1.0" prefHeight="65.0" prefWidth="905.0" style="-fx-background-color: D26192;" />
-      <Button fx:id="primaryButton" layoutX="762.0" layoutY="7.0" onAction="#switchToSecondary" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: FFE97F; -fx-background-radius: 0 100 100 0;" text="Switch to Secondary View" />
-      <Button fx:id="primaryButton1" layoutX="622.0" layoutY="7.0" onAction="#switchToSecondary" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: FFE97F; -fx-background-radius: 100 0 0 100;" text="Switch to Secondary View" />
+      <Button fx:id="primaryButton" layoutX="762.0" layoutY="7.0" onAction="#cargarCRUD" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: FFE97F; -fx-background-radius: 0 100 100 0;" text="Switch to Secondary View" />
+      <Button fx:id="primaryButton1" layoutX="622.0" layoutY="7.0" onAction="#cargarCRUD" prefHeight="48.0" prefWidth="132.0" style="-fx-background-color: FFE97F; -fx-background-radius: 100 0 0 100;" text="Switch to Secondary View" />
       <ImageView cache="true" fitHeight="466.0" fitWidth="620.0" layoutX="150.0" layoutY="107.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: white; -fx-padding: 5;">
          <image>
             <Image url="@../../img/LOGO_Interfaces_rec.png" />

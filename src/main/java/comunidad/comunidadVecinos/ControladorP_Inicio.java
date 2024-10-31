@@ -3,11 +3,11 @@ package comunidad.comunidadVecinos;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
-public class PrimaryController {
+public class ControladorP_Inicio {
     @FXML
-    private void switchToSecondary() throws IOException {
+    private void cargarCRUD() throws IOException {
     	
-        App.setRoot("secondary");
+        App.setRoot("P_CRUDusuarios");
     	
     	Utilidades.Util.dameConexion();
     	if ((Utilidades.Util.dameConexion())!=null) {
