@@ -1,29 +1,34 @@
 package comunidad.comunidadVecinos;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("primary"));
         stage.setScene(scene);
+        
+        stage.sizeToScene(); 
+        stage.setResizable(true);
         stage.show();
     }
 
     static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+        Parent root = loadFXML(fxml);
+        
+        scene.setRoot(root);
+     
+        Stage stage = (Stage) scene.getWindow();
+        stage.sizeToScene();
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
@@ -34,6 +39,4 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-
 }
-// prueba para ver si puedo subir un commit
