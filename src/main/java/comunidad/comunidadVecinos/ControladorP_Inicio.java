@@ -16,4 +16,11 @@ public class ControladorP_Inicio {
     		System.out.println("No se ha podido establecer la conexion");
     	}
     }
+    
+    @FXML
+    private void cargarInicioSesion() throws IOException {
+	
+    App.setRoot("P_InicioSesion");
+    }
+
 }

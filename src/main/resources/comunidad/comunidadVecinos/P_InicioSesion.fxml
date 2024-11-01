@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.BottomNavigation?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -11,42 +9,39 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_AgregarUsuario">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_InicioSesion">
    <children>
       <Region prefHeight="66.0" prefWidth="499.0" style="-fx-background-color: D26192;" />
-      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarCRUD" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarInicio" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/FLECHA.png" />
-            
          </image>
       </ImageView>
-      <Button layoutX="166.0" layoutY="522.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="77.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Guardar">
+      <Button layoutX="136.0" layoutY="470.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="110.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Entrar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="248.0" layoutY="522.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="78.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar">
+      <Button layoutX="250.0" layoutY="470.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="110.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font></Button>
-      <BottomNavigation layoutX="137.0" layoutY="232.0" />
-      <Label layoutX="31.0" layoutY="217.0" prefHeight="30.0" prefWidth="134.0" text="Nombre de Usuario">
+      <Label layoutX="164.0" layoutY="202.0" prefHeight="30.0" prefWidth="168.0" text="Nombre de Usuario">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="31.0" layoutY="255.0" prefHeight="37.0" prefWidth="297.0" />
-      <TextField layoutX="31.0" layoutY="358.0" prefHeight="37.0" prefWidth="297.0" />
-      <Label layoutX="38.0" layoutY="322.0" prefHeight="29.0" prefWidth="78.0" text="Contraseña">
+      <TextField layoutX="96.0" layoutY="242.0" prefHeight="54.0" prefWidth="298.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-border-width: 2; -fx-border-radius: 100; -fx-background-radius: 100;" />
+      <TextField layoutX="99.0" layoutY="354.0" prefHeight="54.0" prefWidth="298.0" style="-fx-background-color: FCFFF4; -fx-border-color: D26192; -fx-border-width: 2; -fx-background-radius: 100; -fx-border-radius: 100;" />
+      <Label layoutX="196.0" layoutY="315.0" prefHeight="30.0" prefWidth="100.0" text="Contraseña">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="54.0" layoutY="100.0" prefHeight="51.0" prefWidth="392.0" text="INICIAR SESIÓN" textAlignment="JUSTIFY" textFill="#d26192" textOverrun="CLIP">
+      <Label layoutX="38.0" layoutY="86.0" prefHeight="66.0" prefWidth="426.0" style="-fx-effect: dropshadow(gaussian, FFE97F, 0.5, 5, 0, 0);" text="INICIAR SESIÓN" textAlignment="JUSTIFY" textFill="#d26192">
          <font>
-            <Font name="Arial Bold Italic" size="48.0" />
+            <Font name="Bungee Shade Regular" size="40.0" />
          </font>
          <opaqueInsets>
-            <Insets />
          </opaqueInsets>
       </Label>
    </children>
