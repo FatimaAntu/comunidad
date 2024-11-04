@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,28 +12,26 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_InicioSesion">
    <children>
       <Region prefHeight="66.0" prefWidth="499.0" style="-fx-background-color: D26192;" />
-      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarInicio" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/FLECHA.png" />
          </image>
       </ImageView>
-      <Button layoutX="136.0" layoutY="470.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="110.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Entrar" onAction="#iniciarSesion">
+      <Button layoutX="136.0" layoutY="470.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="110.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Entrar">
          <font>
             <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
+         </font></Button>
       <Button layoutX="250.0" layoutY="470.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="110.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar">
          <font>
             <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Button>
+         </font></Button>
       <Label layoutX="164.0" layoutY="202.0" prefHeight="30.0" prefWidth="168.0" text="Nombre de Usuario">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtUsuario" layoutX="96.0" layoutY="242.0" prefHeight="54.0" prefWidth="298.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-border-width: 2; -fx-border-radius: 100; -fx-background-radius: 100;" />
-      <PasswordField fx:id="txtPassword" layoutX="99.0" layoutY="354.0" prefHeight="54.0" prefWidth="298.0" style="-fx-background-color: FCFFF4; -fx-border-color: D26192; -fx-border-width: 2; -fx-background-radius: 100; -fx-border-radius: 100;" />
+      <TextField layoutX="96.0" layoutY="242.0" prefHeight="54.0" prefWidth="298.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-border-width: 2; -fx-border-radius: 100; -fx-background-radius: 100;" />
+      <TextField layoutX="99.0" layoutY="354.0" prefHeight="54.0" prefWidth="298.0" style="-fx-background-color: FCFFF4; -fx-border-color: D26192; -fx-border-width: 2; -fx-background-radius: 100; -fx-border-radius: 100;" />
       <Label layoutX="196.0" layoutY="315.0" prefHeight="30.0" prefWidth="100.0" text="Contraseña">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -44,9 +41,8 @@
          <font>
             <Font name="Bungee Shade Regular" size="40.0" />
          </font>
+         <opaqueInsets>
+         </opaqueInsets>
       </Label>
    </children>
 </AnchorPane>
-
-
-
