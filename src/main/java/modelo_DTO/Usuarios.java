@@ -4,6 +4,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class Usuarios {
+
 	private int idUsuario;
 	private String Nombre;
 	private String Apellidos;
