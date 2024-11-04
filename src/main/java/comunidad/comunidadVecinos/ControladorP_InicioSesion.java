@@ -1,34 +1,42 @@
 package comunidad.comunidadVecinos;
 
-import java.io.IOException;
-
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
 
 public class ControladorP_InicioSesion {
-	   @FXML
-	    private TextField usernameField;  
 
-	    @FXML
-	    private TextField passwordField;  
+    @FXML
+    private TextField txtUsuario;
+    
+    @FXML
+    private PasswordField txtPassword;
 
-	    @FXML
-	    private Button guardarButton;  
+    //metodo que se ejecuta al presionar el boton de login
+    @FXML
+    private void iniciarSesion() {
+        String usuario = txtUsuario.getText();
+        String password = txtPassword.getText();
 
-	    @FXML
-	    private ImageView flecha; 
+        if (validarCredenciales(usuario, password)) {
+            
+            // Cerrar la ventana de login y abrir la ventana principal
+        } else {
+            // Muestra un mensaje de error
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Error de inicio de sesión");
+            alerta.setHeaderText("Credenciales incorrectas");
+            alerta.setContentText("Por favor, verifica tu usuario y contraseña.");
+            alerta.showAndWait();
+        }
+    }
 
-	    @FXML
-	    public void initialize() {
-	       
-	    }
-	    
-	    @FXML
-	    private void cargarInicio() throws IOException {
-		
-	    App.setRoot("P_Inicio");
-	    }
-
+    //metodo que simula la validacion de credenciales
+    private boolean validarCredenciales(String usuario, String password) {
+        //aqui la lógica para validar con la base de datos 
+        return "admin".equals(usuario) && "1234".equals(password);//ejemplo de usuario y contraseña
+    }
 }
