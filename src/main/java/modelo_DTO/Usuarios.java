@@ -1,4 +1,7 @@
-package modelo;
+package modelo_DTO;
+
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class Usuarios {
 	private int idUsuario;
@@ -46,8 +49,7 @@ public class Usuarios {
 	}
 	
 	//Constructor con todos los atributos
-	public Usuarios(int idUsuario, String nombre, String apellidos, String vivienda, String nombreUsuario,
-			String contrasena) {
+	public Usuarios(int idUsuario, String nombre, String apellidos, String vivienda, String nombreUsuario, String contrasena) {
 		super();
 		this.idUsuario = idUsuario;
 		Nombre = nombre;

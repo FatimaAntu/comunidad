@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,27 +18,27 @@
             <Image url="@../../img/FLECHA.png" />
          </image>
       </ImageView>
-      <Button layoutX="166.0" layoutY="522.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Guardar" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="251.0" />
-      <Button layoutX="248.0" layoutY="522.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="100.0" />
+      <Button layoutX="166.0" layoutY="522.0" mnemonicParsing="false" onAction="#AggUsuario" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Guardar" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="251.0" />
+      <Button layoutX="248.0" layoutY="522.0" mnemonicParsing="false" onAction="#borrarCampos" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="100.0" />
       <Label layoutX="-2.0" layoutY="81.0" prefHeight="30.0" prefWidth="62.0" text="Nombre" AnchorPane.leftAnchor="50.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField layoutY="112.0" prefHeight="37.0" prefWidth="297.0" style="-fx-background-color: FCFFF4; -fx-background-radius: 6; -fx-border-color: D26192; -fx-border-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
-      <Label layoutX="-2.0" layoutY="161.0" prefHeight="30.0" prefWidth="62.0" text="Apellido" AnchorPane.leftAnchor="50.0">
+      <TextField fx:id="txtNombre" layoutY="112.0" prefHeight="37.0" prefWidth="297.0" style="-fx-background-color: FCFFF4; -fx-background-radius: 6; -fx-border-color: D26192; -fx-border-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+      <Label layoutX="-2.0" layoutY="161.0" prefHeight="30.0" prefWidth="78.0" text="Apellidos" AnchorPane.leftAnchor="50.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField layoutY="192.0" prefHeight="37.0" prefWidth="297.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+      <TextField fx:id="txtApellidos" layoutY="192.0" prefHeight="37.0" prefWidth="297.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
       <Label layoutX="-2.0" layoutY="243.0" prefHeight="30.0" prefWidth="62.0" text="Vivienda" AnchorPane.leftAnchor="50.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField layoutY="274.0" prefHeight="37.0" prefWidth="297.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
-      <TextField layoutY="358.0" prefHeight="37.0" prefWidth="297.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+      <TextField fx:id="txtVivienda" layoutY="274.0" prefHeight="37.0" prefWidth="297.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+      <PasswordField fx:id="txtPassword" layoutY="358.0" prefHeight="37.0" prefWidth="297.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
       <Label layoutX="-2.0" layoutY="328.0" prefHeight="29.0" prefWidth="78.0" text="Contraseña" AnchorPane.leftAnchor="50.0">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -48,6 +49,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField layoutY="434.0" prefHeight="38.0" prefWidth="385.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+      <PasswordField fx:id="txtRepeatPassword" layoutY="434.0" prefHeight="38.0" prefWidth="385.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
    </children>
 </AnchorPane>

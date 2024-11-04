@@ -1,10 +1,13 @@
 package comunidad.comunidadVecinos;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import modelo_DAO.InicioSesion;
 
 
 public class ControladorP_InicioSesion {
@@ -22,7 +25,11 @@ public class ControladorP_InicioSesion {
         String password = txtPassword.getText();
 
         if (validarCredenciales(usuario, password)) {
-            
+        	try {
+				cargarPprincipal();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
             // Cerrar la ventana de login y abrir la ventana principal
         } else {
             // Muestra un mensaje de error
@@ -34,9 +41,19 @@ public class ControladorP_InicioSesion {
         }
     }
 
-    //metodo que simula la validacion de credenciales
+    //metodo que valida las credenciales
     private boolean validarCredenciales(String usuario, String password) {
-        //aqui la lógica para validar con la base de datos 
-        return "admin".equals(usuario) && "1234".equals(password);//ejemplo de usuario y contraseña
+    	InicioSesion is = new InicioSesion();
+		return is.validarUsuario(usuario).equals(password);
+    }
+    
+    @FXML
+    private void cargarPprincipal() throws IOException {
+        App.setRoot("P_Principal");
+    }
+    
+    @FXML
+    private void cargarPinicio() throws IOException {
+        App.setRoot("P_Inicio");
     }
 }
