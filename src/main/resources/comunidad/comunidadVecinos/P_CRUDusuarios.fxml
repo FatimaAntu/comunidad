@@ -16,13 +16,15 @@
             <Image url="@../../img/FLECHA.png" />
          </image>
       </ImageView>
-      <TableView layoutX="26.0" layoutY="89.0" prefHeight="420.0" prefWidth="448.0" style="-fx-background-color: FCFFF4;">
+      <TableView fx:id="tablaUsuarios" layoutX="26.0" layoutY="89.0" prefHeight="420.0" prefWidth="448.0" style="-fx-background-color: FCFFF4;">
         <columns>
-          <TableColumn prefWidth="447.199987411499" text="Usuarios" />
+          <TableColumn fx:id="colNombre" prefWidth="135.1999568939209" text="Nombre" />
+            <TableColumn fx:id="colApellidos" prefWidth="222.4000244140625" text="Apellidos" />
+            <TableColumn fx:id="colVivienda" prefWidth="88.79998779296875" text="Vivienda" />
         </columns>
       </TableView>
       <Button layoutX="111.0" layoutY="522.0" mnemonicParsing="false" onAction="#cargarAgregarUsuario" prefHeight="37.0" prefWidth="77.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Agregar" />
       <Button layoutX="197.0" layoutY="522.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="105.0" style="-fx-background-radius: 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Modificar" />
-      <Button layoutX="311.0" layoutY="522.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="78.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Eliminar" />
+      <Button layoutX="311.0" layoutY="522.0" mnemonicParsing="false" onAction="#initialize" prefHeight="38.0" prefWidth="78.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Eliminar" />
    </children>
 </AnchorPane>

@@ -73,6 +73,11 @@ public class Usuarios {
 	//Constructor vacío
 	public Usuarios() {
 	}
+	@Override
+	public String toString() {
+		return "Usuarios [idUsuario=" + idUsuario + ", Nombre=" + Nombre + ", Apellidos=" + Apellidos + ", Vivienda="
+				+ Vivienda + ", NombreUsuario=" + NombreUsuario + ", Contrasena=" + Contrasena + "]";
+	}
 	
 	
 }

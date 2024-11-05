@@ -51,6 +51,7 @@ public class ControladorP_AgregarUsuario {
 			alerta.setContentText("Las contraseñas no coinciden");
 			alerta.showAndWait();
 		}
+		App.setRoot("P_CRUDusuarios");
 	}
 
 	@FXML

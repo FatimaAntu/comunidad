@@ -3,7 +3,6 @@ package modelo_DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 import modelo_DTO.Usuarios;
 
 public class AgregarUsuarios {
@@ -41,7 +40,5 @@ public class AgregarUsuarios {
             e.printStackTrace();
             return false;
         }
-	
-  
-
+    }
 }
