@@ -29,7 +29,7 @@ public class Util {
 	    try {
 	    
 	        conn = DriverManager.getConnection
-	        		("jdbc:mysql://localhost:3307/comunidad?useSSL=false",
+	        		("jdbc:mysql://localhost:3306/comunidad?useSSL=false",
 	        				"root","");
 	  
 	    } catch (SQLException ex) {
