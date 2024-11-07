@@ -4,14 +4,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import modelo_DAO.AgregarUsuarios;
 import modelo_DAO.ListarUsuarios;
 import modelo_DTO.Usuarios;
 
@@ -68,6 +71,39 @@ public class ControladorP_CRUDusuarios {
 			alerta.showAndWait();
 		}
 	}
+	
+	@FXML
+    private void eliminarUsuario() {
+        Usuarios usuarioSeleccionado = tablaUsuarios.getSelectionModel().getSelectedItem();
+
+        if (usuarioSeleccionado != null) {
+            // Confirmar si el usuario desea eliminar el usuario seleccionado
+            Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmacion.setHeaderText(null);
+            confirmacion.setTitle("Confirmación");
+            confirmacion.setContentText("¿Estás seguro de que deseas eliminar el usuario seleccionado?");
+            Optional<ButtonType> resultado = confirmacion.showAndWait();
+
+            if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+                // Proceder con la eliminación
+                listaUsuarios.remove(usuarioSeleccionado);
+                tablaUsuarios.getSelectionModel().clearSelection();
+
+                AgregarUsuarios eliminar = new AgregarUsuarios();
+                eliminar.eliminarUsuario(usuarioSeleccionado);
+            }else {
+            	  tablaUsuarios.getSelectionModel().clearSelection();
+            }
+        } else {
+            // Mostrar un mensaje de advertencia si no hay ningún usuario seleccionado
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setTitle("Advertencia");
+            alert.setContentText("Por favor, selecciona un usuario para eliminar.");
+            alert.showAndWait();
+           
+        }
+    }
 	
 	@FXML
 	private void cargarAgregarUsuario() throws IOException {

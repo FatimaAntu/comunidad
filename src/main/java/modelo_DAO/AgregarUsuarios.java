@@ -41,4 +41,20 @@ public class AgregarUsuarios {
 			return false;
 		}
 	}
+	
+	public boolean eliminarUsuario(Usuarios user) {
+	    String sql = "DELETE FROM comunidad.usuarios WHERE idUsuario = ?";
+
+	    try (Connection conn = Utilidades.Util.dameConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
+	        int idUsuario = user.getIdUsuario();
+			ps.setInt(1, idUsuario);
+
+	        int filasEliminadas = ps.executeUpdate();
+	        return filasEliminadas > 0; 
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	    
+	}
 }
