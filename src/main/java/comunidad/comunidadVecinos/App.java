@@ -7,36 +7,37 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import modelo_DTO.Usuarios;
 
 public class App extends Application {
+	public static Usuarios usuarioParaEditar; // Usuario temporal para edición
+	private static Scene scene;
 
-    private static Scene scene;
+	@Override
+	public void start(Stage stage) throws IOException {
+		scene = new Scene(loadFXML("P_Inicio"));
+		stage.setScene(scene);
 
-    @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("P_Inicio"));
-        stage.setScene(scene);
-        
-        stage.sizeToScene(); 
-        stage.setResizable(false);
-        stage.show();
-    }
+		stage.sizeToScene();
+		stage.setResizable(false);
+		stage.show();
+	}
 
-    static void setRoot(String fxml) throws IOException {
-        Parent root = loadFXML(fxml);
-        
-        scene.setRoot(root);
-     
-        Stage stage = (Stage) scene.getWindow();
-        stage.sizeToScene();
-    }
+	static void setRoot(String fxml) throws IOException {
+		Parent root = loadFXML(fxml);
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
+		scene.setRoot(root);
 
-    public static void main(String[] args) {
-        launch();
-    }
+		Stage stage = (Stage) scene.getWindow();
+		stage.sizeToScene();
+	}
+
+	private static Parent loadFXML(String fxml) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+		return fxmlLoader.load();
+	}
+
+	public static void main(String[] args) {
+		launch();
+	}
 }

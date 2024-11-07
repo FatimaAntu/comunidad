@@ -23,22 +23,22 @@ public class AgregarUsuarios {
 		}
 	}
 
-    public boolean modificarUsuario(Usuarios user) {
-        String sql = "UPDATE comunidad.usuarios SET Nombre = ?, Apellidos = ?, Vivienda = ?, NombreUsuario = ?, Contrasena = ? WHERE id = ?";
+	public boolean modificarUsuario(Usuarios user) {
+		String sql = "UPDATE comunidad.usuarios SET Nombre = ?, Apellidos = ?, Vivienda = ?, NombreUsuario = ?, Contrasena = ? WHERE IdUsuario = ?";
 
-        try (Connection conn = Utilidades.Util.dameConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, user.getNombre());
-            ps.setString(2, user.getApellidos());
-            ps.setString(3, user.getVivienda());
-            ps.setString(4, user.getNombreUsuario());
-            ps.setString(5, user.getContrasena());
-            ps.setInt(6, user.getIdUsuario());
+		try (Connection conn = Utilidades.Util.dameConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
+			ps.setString(1, user.getNombre());
+			ps.setString(2, user.getApellidos());
+			ps.setString(3, user.getVivienda());
+			ps.setString(4, user.getNombreUsuario());
+			ps.setString(5, user.getContrasena());
+			ps.setInt(6, user.getIdUsuario());
 
-            int filasActualizadas = ps.executeUpdate();
-            return filasActualizadas > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+			int filasActualizadas = ps.executeUpdate();
+			return filasActualizadas > 0;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

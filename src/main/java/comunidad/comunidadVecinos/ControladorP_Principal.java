@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 
 public class ControladorP_Principal {
 	@FXML
-    private void cargarPinicio() throws IOException {
-        App.setRoot("P_Inicio");
-    }
+	private void cargarPinicio() throws IOException {
+		App.setRoot("P_Inicio");
+	}
 }
