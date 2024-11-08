@@ -30,7 +30,7 @@ public class ControladorP_InicioSesion {
 				cargarPCRUDusuarios ();
 			}else {
 				
-				cargarPprincipal();}
+				cargarPCalendario();}
 				}
 			 catch (IOException e) {
 				e.printStackTrace();
@@ -53,8 +53,8 @@ public class ControladorP_InicioSesion {
 	}
 
 	@FXML
-	private void cargarPprincipal() throws IOException {
-		App.setRoot("P_Principal");
+	private void cargarPCalendario() throws IOException {
+		App.setRoot("P_Calendario");
 	}
 
 	@FXML

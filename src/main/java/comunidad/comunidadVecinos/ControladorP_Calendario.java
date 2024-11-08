@@ -11,7 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 
-public class ControladorP_Principal {
+public class ControladorP_Calendario {
 	@FXML
     private GridPane gridCalendario;
     @FXML
@@ -19,7 +19,7 @@ public class ControladorP_Principal {
 
     private YearMonth mesActual;
 
-    public ControladorP_Principal() {
+    public ControladorP_Calendario() {
         mesActual = YearMonth.now();
     }
 

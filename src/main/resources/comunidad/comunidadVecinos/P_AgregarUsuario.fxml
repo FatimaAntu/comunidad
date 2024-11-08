@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_Usuario">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_AgregarUsuario">
    <children>
       <Region prefHeight="66.0" prefWidth="499.0" style="-fx-background-color: D26192;" />
       <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarCRUD" pickOnBounds="true" preserveRatio="true">

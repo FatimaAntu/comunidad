@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import modelo_DAO.AgregarUsuarios;
 import modelo_DTO.Usuarios;
 
-public class ControladorP_Usuario {
+public class ControladorP_AgregarUsuario {
 	@FXML
 	private TextField txtNombre;
 	@FXML
