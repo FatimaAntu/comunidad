@@ -4,6 +4,7 @@ module comunidad.comunidadVecinos {
 	requires java.sql;
 	requires javafx.graphics;
 	requires java.desktop;
+	requires javafx.base;
 
 	opens comunidad.comunidadVecinos to javafx.fxml;
 

@@ -29,7 +29,7 @@
      <Region prefHeight="66.0" prefWidth="905.0" style="-fx-background-color: D26192;" />
 
       <!-- Botones de navegación inferior -->
-      <Button layoutX="284.0" layoutY="612.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="106.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Actividades" />
+      <Button layoutX="284.0" layoutY="612.0" mnemonicParsing="false" onAction="#cargarActividades" prefHeight="37.0" prefWidth="106.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Actividades" />
       <Button layoutX="399.0" layoutY="612.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" style="-fx-background-radius: 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Modificar" />
       <Button layoutX="513.0" layoutY="612.0" mnemonicParsing="false" onAction="#cargarListaSugerencias" prefHeight="37.0" prefWidth="106.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Sugerencias" />
 

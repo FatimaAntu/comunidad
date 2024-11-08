@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_Invierno">
    <children>
       <Region prefHeight="66.0" prefWidth="499.0" style="-fx-background-color: D26192;" />
-      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarPanterior" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="15.0" layoutY="20.0" onMouseClicked="#cargarPanterior" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/FLECHA.png" />
          </image>
@@ -27,20 +29,29 @@
       <TableView id="tabla3_6" layoutX="31.0" layoutY="181.0" prefHeight="354.0" prefWidth="200.0">
         <columns>
           <TableColumn prefWidth="100.79999351501465" text="Actividad" />
-          <TableColumn prefWidth="96.0" text="Botones" />
+          <TableColumn fx:id="botones36" prefWidth="96.0" text="Botones" />
         </columns>
       </TableView>
       <TableView id="tabla7_10" layoutX="271.0" layoutY="181.0" prefHeight="354.0" prefWidth="200.0">
          <columns>
             <TableColumn prefWidth="100.79999351501465" text="Actividad" />
-            <TableColumn prefWidth="96.0" text="Botones" />
+            <TableColumn id="botones710" prefWidth="96.0" text="Botones" />
          </columns>
       </TableView>
-      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="434.0" layoutY="14.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="454.0" layoutY="21.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/EQUIS.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="59.0" layoutX="176.0" layoutY="13.0" onMouseClicked="#cargarPanterior" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/AVATAR.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="229.0" layoutY="19.0" text="Pepito Grillo" textFill="#ffe97f">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
-

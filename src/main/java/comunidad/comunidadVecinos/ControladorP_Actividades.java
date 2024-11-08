@@ -30,4 +30,19 @@ public class ControladorP_Actividades {
 	            // Manejo de errores, como mostrar una alerta al usuario
 	        }
 	    }
+	 
+	 @FXML
+		private void cargarCalendario() throws IOException {
+			App.setRoot("P_Calendario");
+		}
+	 @FXML
+		private void cargarInvierno() throws IOException {
+			App.setRoot("P_Invierno");
+		}
+	 @FXML
+		private void cargarVerano() throws IOException {
+			App.setRoot("P_Verano");
+		}
+	 
+	 
 	}
