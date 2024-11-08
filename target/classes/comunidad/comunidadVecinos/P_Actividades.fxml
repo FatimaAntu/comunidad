@@ -10,13 +10,13 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_Actividades">
    <children>
       <Region prefHeight="66.0" prefWidth="499.0" style="-fx-background-color: D26192;" />
-      <ImageView fitHeight="37.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarCRUD" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarPCalendario" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/FLECHA.png" />
          </image>
          
       </ImageView>
-      <Button layoutX="120.0" layoutY="327.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="266.0" style="-fx-background-radius: 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Invierno" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="113.0">
+      <Button layoutX="120.0" layoutY="327.0" mnemonicParsing="false" onAction="#cargarPInvierno" prefHeight="74.0" prefWidth="266.0" style="-fx-background-radius: 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Invierno" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="113.0">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -24,11 +24,11 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button layoutX="120.0" layoutY="225.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="266.0" style="-fx-background-radius: 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Verano">
+      <Button layoutX="120.0" layoutY="225.0" mnemonicParsing="false" onAction="#cargarPVerano" prefHeight="74.0" prefWidth="266.0" style="-fx-background-radius: 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Verano">
          <font>
             <Font size="18.0" />
          </font></Button>
-         <Button layoutX="120.0" layoutY="429.0" mnemonicParsing="false" onAction="#abrirVistaCumpleanos" prefHeight="52.0" prefWidth="266.0" style="-fx-background-radius: 100; -fx-background-color: FCFFF4; -fx-text-fill: D26192;" text="Cumpleaños">
+         <Button layoutX="120.0" layoutY="429.0" mnemonicParsing="false" onAction="#abrirVistaCumpleanos" onMouseClicked="#abrirVistaCumpleanos" prefHeight="52.0" prefWidth="266.0" style="-fx-background-radius: 100; -fx-background-color: FCFFF4; -fx-text-fill: D26192;" text="Cumpleaños">
     <font>
         <Font size="18.0" />
     </font>
@@ -38,11 +38,10 @@
             <Image url="@../../img/TITULO_Actividades.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="44.0" layoutX="441.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="44.0" layoutX="441.0" layoutY="15.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/EQUIS.png" />
          </image>
       </ImageView>
    </children>
 </AnchorPane>
-

@@ -11,6 +11,31 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ControladorP_Actividades {
+	
+	@FXML
+	private void cargarCRUD() throws IOException {
+		App.setRoot("P_CRUDusuarios");
+	}
+	
+	@FXML
+	private void cerrarSesion() throws IOException {
+		App.setRoot("P_Inicio");
+	}
+	
+	 @FXML
+	 private void cargarPVerano() throws IOException {
+			App.setRoot("P_Verano");
+		}
+	 
+	 @FXML
+	 private void cargarPInvierno() throws IOException {
+			App.setRoot("P_Invierno");
+		}
+	 
+	 @FXML
+		private void cargarPCalendario() throws IOException {
+			App.setRoot("P_Calendario");
+		}
 
 	 @FXML
 	    private void abrirVistaCumpleanos(ActionEvent event) {

@@ -23,8 +23,6 @@ public class ControladorP_Calendario {
         mesActual = YearMonth.now();
     }
 
-    
-
     @FXML
     public void initialize() {
         // Configura las restricciones solo una vez
