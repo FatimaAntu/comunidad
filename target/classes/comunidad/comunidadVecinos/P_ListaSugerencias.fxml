@@ -17,7 +17,7 @@
       </ImageView>
       <Button layoutX="111.0" layoutY="522.0" mnemonicParsing="false" onAction="#cargarAgregarSugerencia" prefHeight="38.0" prefWidth="130.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Crear Sugerencia" />
       <Button layoutX="259.0" layoutY="522.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="130.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Mis Sugerencias" />
-      <TableView layoutX="42.0" layoutY="130.0" prefHeight="370.0" prefWidth="417.0" />
+      <TableView fx:id="tablaSugerencias" layoutX="42.0" layoutY="130.0" prefHeight="370.0" prefWidth="417.0" />
       <ImageView fitHeight="93.0" fitWidth="404.0" layoutX="39.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/TituloSugerencias.png" />

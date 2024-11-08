@@ -28,7 +28,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-         <Button layoutX="120.0" layoutY="429.0" mnemonicParsing="false" onAction="#abrirVistaCumpleanos" prefHeight="52.0" prefWidth="266.0" style="-fx-background-radius: 100; -fx-background-color: FCFFF4; -fx-text-fill: D26192;" text="Cumpleaños">
+         <Button layoutX="120.0" layoutY="429.0" mnemonicParsing="false" onAction="#abrirVistaCumpleanos" onMouseClicked="#abrirVistaCumpleanos" prefHeight="52.0" prefWidth="266.0" style="-fx-background-radius: 100; -fx-background-color: FCFFF4; -fx-text-fill: D26192;" text="Cumpleaños">
     <font>
         <Font size="18.0" />
     </font>
@@ -38,7 +38,7 @@
             <Image url="@../../img/TITULO_Actividades.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="44.0" layoutX="441.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="44.0" layoutX="441.0" layoutY="15.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/EQUIS.png" />
          </image>
