@@ -1,8 +1,7 @@
 package comunidad.comunidadVecinos;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +39,7 @@ public class ControladorP_CRUDusuarios {
 		// Agrega los usuarios a la lista observable, que automáticamente actualiza la
 		// tabla.
 		listaUsuarios.addAll(usuariosBBDD);
+	
 	}
 
 	public void initialize() {

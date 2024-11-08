@@ -36,9 +36,17 @@ public class ControladorP_Usuario {
 		String nombre = txtNombre.getText();
 		String apellidos = txtApellidos.getText();
 		String vivienda = txtVivienda.getText();
-		String nombreUsuario = txtVivienda.getText(); // Asumimos que el nombre de usuario es igual a "vivienda"
+		String nombreUsuario = txtVivienda.getText(); 
 		String contrasena = txtPassword.getText();
 		String repeatContrasena = txtRepeatPassword.getText();
+		
+		// Verificar  campos no esten vacios
+		if (nombre.isEmpty() || apellidos.isEmpty() || vivienda.isEmpty()|| nombreUsuario.isEmpty()|| contrasena.isEmpty()|| repeatContrasena.isEmpty()) {
+			Alert alerta = new Alert(Alert.AlertType.WARNING);
+			alerta.setHeaderText("Todos los campos son obligatorios");
+			alerta.showAndWait();
+			return;
+		}
 
 		if (!contrasena.equals(repeatContrasena)) {
 			Alert alerta = new Alert(Alert.AlertType.ERROR);

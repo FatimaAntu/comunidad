@@ -23,9 +23,17 @@ public class ListarUsuarios {
 				String Vivienda = rs.getString("Vivienda");
 				String NombreUsuario = rs.getString("NombreUsuario");
 				String Contrasena = rs.getString("Contrasena");
+				
+				if(IdUsuario==13) {
+					
+				}else {
+					Usuarios usuario = new Usuarios(IdUsuario, Nombre, Apellidos, Vivienda, NombreUsuario, Contrasena);
+					usuarios.add(usuario);
+				}
+				
+				
 
-				Usuarios usuario = new Usuarios(IdUsuario, Nombre, Apellidos, Vivienda, NombreUsuario, Contrasena);
-				usuarios.add(usuario);
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -22,11 +22,17 @@ public class ControladorP_InicioSesion {
 	private void iniciarSesion() {
 		String usuario = txtUsuario.getText();
 		String password = txtPassword.getText();
-
+   
 		if (validarCredenciales(usuario, password)) {
 			try {
-				cargarPprincipal();
-			} catch (IOException e) {
+				if ("adm".equals(usuario) && "123".equals(password)) {
+					
+				cargarPCRUDusuarios ();
+			}else {
+				
+				cargarPprincipal();}
+				}
+			 catch (IOException e) {
 				e.printStackTrace();
 			}
 			// Cerrar la ventana de login y abrir la ventana principal
@@ -54,5 +60,11 @@ public class ControladorP_InicioSesion {
 	@FXML
 	private void cargarPinicio() throws IOException {
 		App.setRoot("P_Inicio");
+	}
+	
+	@FXML 
+	
+	private void cargarPCRUDusuarios()throws IOException {
+		App.setRoot("P_CRUDusuarios");
 	}
 }
