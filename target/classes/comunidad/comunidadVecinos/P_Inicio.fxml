@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="905.0" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_Inicio">
    <children>
       <Region layoutY="-1.0" prefHeight="65.0" prefWidth="905.0" style="-fx-background-color: D26192;" />
-      <Button fx:id="primaryButton" layoutX="732.0" layoutY="7.0" onAction="#cargarInicioSesion" prefHeight="48.0" prefWidth="162.0" style="-fx-background-color: FFE97F; -fx-background-radius: 0 100 100 0;" text="Login">
+      <Button fx:id="primaryButton" layoutX="732.0" layoutY="7.0" onAction="#cargarInicioSesion" prefHeight="48.0" prefWidth="162.0" style="-fx-background-color: FFE97F; -fx-background-radius: 100;" text="Login">
          <font>
             <Font size="14.0" />
          </font></Button>

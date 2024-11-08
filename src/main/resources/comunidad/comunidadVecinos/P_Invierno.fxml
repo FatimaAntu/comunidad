@@ -21,7 +21,7 @@
       <Button layoutX="251.2" layoutY="547.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar" AnchorPane.leftAnchor="251.2" AnchorPane.rightAnchor="100.0" />
       <ImageView fitHeight="115.0" fitWidth="440.0" layoutX="31.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/TITULO_Inivierno.png" />
+            <Image url="@../../img/TITULO_Invierno.png" />
          </image>
       </ImageView>
       <TableView id="tabla3_6" layoutX="31.0" layoutY="181.0" prefHeight="354.0" prefWidth="200.0">

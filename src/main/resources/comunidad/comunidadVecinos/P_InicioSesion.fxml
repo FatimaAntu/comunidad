@@ -46,10 +46,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="86.0" prefHeight="66.0" prefWidth="426.0" style="-fx-effect: dropshadow(gaussian, FFE97F, 0.5, 5, 0, 0);" text="INICIAR SESIÓN" textAlignment="JUSTIFY" textFill="#d26192">
-         <font>
-            <Font name="Bungee Shade Regular" size="40.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="162.0" fitWidth="457.0" layoutX="23.0" layoutY="90.0" onMouseClicked="#cargarPinicio" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/TITULO_InicioSesion.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

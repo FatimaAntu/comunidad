@@ -99,9 +99,18 @@ public class ControladorP_Calendario {
         mesActual = mesActual.minusMonths(1);
         actualizarMes();  // Actualizar el mes y mostrarlo
     }
+	@FXML
+	private void cerrarSesion() throws IOException {
+		App.setRoot("P_Inicio");
+	}
 	
 	@FXML
-	private void cargarPinicio() throws IOException {
-		App.setRoot("P_Inicio");
+	private void cargarListaSugerencias() throws IOException {
+		App.setRoot("P_ListaSugerencias");
+	}
+	
+	@FXML
+	private void cargarActividades() throws IOException {
+		App.setRoot("P_Actividades");
 	}
 }

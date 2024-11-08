@@ -78,4 +78,13 @@ public class ControladorP_ListaSugerencias {
 		txtApellido.clear();
 		txtTexto.clear();
 	}
+	
+	@FXML
+	private void cerrarSesion() throws IOException {
+		App.setRoot("P_Inicio");
+	}
+	@FXML
+	private void cargarCalendario() throws IOException {
+		App.setRoot("P_Calendario");
+	}
 }
