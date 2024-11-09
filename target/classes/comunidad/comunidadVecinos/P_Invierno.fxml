@@ -40,15 +40,15 @@
       </TableView>
       <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="454.0" layoutY="21.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/EQUIS.png" />
+            <Image url="@../../img/LOGOUT.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="59.0" layoutX="176.0" layoutY="13.0" onMouseClicked="#cargarPanterior" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="59.0" layoutX="109.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/AVATAR.png" />
          </image>
       </ImageView>
-      <Label layoutX="229.0" layoutY="19.0" text="Pepito Grillo" textFill="#ffe97f">
+      <Label fx:id="labelNombre" layoutX="160.0" layoutY="20.0" text="Username" textFill="#ffe97f">
          <font>
             <Font size="20.0" />
          </font>

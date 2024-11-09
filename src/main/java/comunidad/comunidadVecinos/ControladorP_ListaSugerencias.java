@@ -7,9 +7,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import modelo_DAO.AgregarSugerencia;
+import modelo_DAO.InicioSesion;
 import modelo_DAO.ListarSugerencias;
 import modelo_DTO.Sugerencias;
 
@@ -20,24 +22,35 @@ public class ControladorP_ListaSugerencias {
 	private TextField txtApellido;
 	@FXML
 	private TextField txtTexto;
-
+	@FXML
+    private Label labelNombre;	
 	@FXML
 	private TableView<Sugerencias> tablaSugerencias;
 
 	private ObservableList<Sugerencias> listaSugerencias;
 
+	
+	private void actualizarLabelNombre() {
+		InicioSesion is = new InicioSesion();
+        String nombre = is.extraerN(); // Obtener el nombre extraído de la base de datos
+        labelNombre.setText(nombre); // Establecer el nombre en el label
+	}
+	
 	private void leerSugerencias() {
 		ListarSugerencias ls = new ListarSugerencias();
 		List<Sugerencias> sugerenciasBBDD = ls.leerSugerencia();
 
 		listaSugerencias.addAll(sugerenciasBBDD);
 	}
-
+	
+	@FXML
 	public void initialize() {
 		listaSugerencias = FXCollections.observableArrayList();
 		tablaSugerencias.setItems(listaSugerencias);
 
 		leerSugerencias();
+		actualizarLabelNombre();
+
 	}
 
 	@FXML

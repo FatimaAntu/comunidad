@@ -10,25 +10,34 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
+import modelo_DAO.InicioSesion;
 
 public class ControladorP_Calendario {
 	@FXML
     private GridPane gridCalendario;
     @FXML
     private Label labelMes;
-
+    @FXML
+    private Label labelNombre;
+    
     private YearMonth mesActual;
-
+    
     public ControladorP_Calendario() {
         mesActual = YearMonth.now();
     }
-
+	
+	private void actualizarLabelNombre() {
+		InicioSesion is = new InicioSesion();
+        String nombre = is.extraerN(); // Obtener el nombre extraído de la base de datos
+        labelNombre.setText(nombre); // Establecer el nombre en el label
+	}
     @FXML
     public void initialize() {
         // Configura las restricciones solo una vez
         configurarRestricciones();
         // Método de inicialización donde se llama a actualizarMes para cargar el mes actual
         actualizarMes();
+        actualizarLabelNombre();
     }
 
     private void actualizarMes() {

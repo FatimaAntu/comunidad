@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import modelo_DAO.InicioSesion;
 
 public class ControladorP_InicioSesion {
@@ -16,6 +15,7 @@ public class ControladorP_InicioSesion {
 
 	@FXML
 	private PasswordField txtPassword;
+
 
 	// metodo que se ejecuta al presionar el boton de login
 	@FXML
@@ -29,15 +29,12 @@ public class ControladorP_InicioSesion {
 					
 				cargarPCRUDusuarios ();
 			}else {
-				
 				cargarPCalendario();}
 				}
 			 catch (IOException e) {
 				e.printStackTrace();
 			}
-			// Cerrar la ventana de login y abrir la ventana principal
 		} else {
-			// Muestra un mensaje de error
 			Alert alerta = new Alert(Alert.AlertType.ERROR);
 			alerta.setTitle("Error de inicio de sesión");
 			alerta.setHeaderText("Credenciales incorrectas");
@@ -45,12 +42,14 @@ public class ControladorP_InicioSesion {
 			alerta.showAndWait();
 		}
 	}
-
-	// metodo que valida las credenciales
+	
 	private boolean validarCredenciales(String usuario, String password) {
 		InicioSesion is = new InicioSesion();
+		is.extraerNombr(usuario);
 		return is.validarUsuario(usuario).equals(password);
 	}
+	
+	
 
 	@FXML
 	private void cargarPCalendario() throws IOException {
@@ -62,8 +61,7 @@ public class ControladorP_InicioSesion {
 		App.setRoot("P_Inicio");
 	}
 	
-	@FXML 
-	
+	@FXML
 	private void cargarPCRUDusuarios()throws IOException {
 		App.setRoot("P_CRUDusuarios");
 	}

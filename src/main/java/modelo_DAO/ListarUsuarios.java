@@ -18,7 +18,6 @@ public class ListarUsuarios {
 			while (rs.next()) {
 				int IdUsuario = rs.getInt("IdUsuario");
 				String Nombre = rs.getString("Nombre");
-				;
 				String Apellidos = rs.getString("Apellidos");
 				String Vivienda = rs.getString("Vivienda");
 				String NombreUsuario = rs.getString("NombreUsuario");
@@ -30,10 +29,6 @@ public class ListarUsuarios {
 					Usuarios usuario = new Usuarios(IdUsuario, Nombre, Apellidos, Vivienda, NombreUsuario, Contrasena);
 					usuarios.add(usuario);
 				}
-				
-				
-
-				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
