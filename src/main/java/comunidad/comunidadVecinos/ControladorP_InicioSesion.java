@@ -49,6 +49,12 @@ public class ControladorP_InicioSesion {
 		return is.validarUsuario(usuario).equals(password);
 	}
 	
+	@FXML
+	public void borrarCampos() {
+		txtUsuario.setText("");
+		txtPassword.setText("");
+	}
+	
 	
 
 	@FXML

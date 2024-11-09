@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import modelo_DAO.AgregarSugerencia;
+import modelo_DAO.Alertas;
 import modelo_DAO.InicioSesion;
 import modelo_DAO.ListarSugerencias;
 import modelo_DTO.Sugerencias;
@@ -32,8 +33,8 @@ public class ControladorP_ListaSugerencias {
 	
 	private void actualizarLabelNombre() {
 		InicioSesion is = new InicioSesion();
-        String nombre = is.extraerN(); // Obtener el nombre extraído de la base de datos
-        labelNombre.setText(nombre); // Establecer el nombre en el label
+        String nombre = is.extraerN();
+        labelNombre.setText(nombre);
 	}
 	
 	private void leerSugerencias() {
@@ -67,9 +68,8 @@ public class ControladorP_ListaSugerencias {
 
 		// Verificar  campos no esten vacios
 		if (nombre.isEmpty() || apellido.isEmpty() || texto.isEmpty()) {
-			Alert alerta = new Alert(Alert.AlertType.WARNING);
-			alerta.setHeaderText("Todos los campos son obligatorios");
-			alerta.showAndWait();
+			Alertas a = new Alertas();
+			a.alertaWarning("Todos los campos son obligatorios");
 			return;
 		}
 

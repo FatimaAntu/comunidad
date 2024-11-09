@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import modelo_DAO.AgregarUsuarios;
+import modelo_DAO.Alertas;
 import modelo_DTO.Usuarios;
 
 public class ControladorP_AgregarUsuario {
@@ -42,18 +43,14 @@ public class ControladorP_AgregarUsuario {
 		
 		// Verificar  campos no esten vacios
 		if (nombre.isEmpty() || apellidos.isEmpty() || vivienda.isEmpty()|| nombreUsuario.isEmpty()|| contrasena.isEmpty()|| repeatContrasena.isEmpty()) {
-			Alert alerta = new Alert(Alert.AlertType.WARNING);
-			alerta.setHeaderText("Todos los campos son obligatorios");
-			alerta.showAndWait();
-			return;
+			Alertas a = new Alertas();
+            a.alertaWarning("Todos los campos son obligatorios");
+            return;
 		}
 
 		if (!contrasena.equals(repeatContrasena)) {
-			Alert alerta = new Alert(Alert.AlertType.ERROR);
-			alerta.setTitle("Error al guardar");
-			alerta.setHeaderText("Credenciales incorrectas");
-			alerta.setContentText("Las contraseñas no coinciden");
-			alerta.showAndWait();
+			Alertas a = new Alertas();
+			a.alertaError("Credenciales incorrectas, las contraseñas no coinciden");
 			return;
 		}
 
@@ -63,10 +60,8 @@ public class ControladorP_AgregarUsuario {
 			Usuarios nuevoUsuario = new Usuarios(nombre, apellidos, vivienda, nombreUsuario, contrasena);
 			au.AgregarUsuario(nuevoUsuario);
 
-			Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-			alerta.setTitle("Agregar Usuario");
-			alerta.setHeaderText("Usuario añadido correctamente");
-			alerta.showAndWait();
+			Alertas a = new Alertas();
+			a.alertaConfirmation("Usuario añadido correctamente");
 		} else {
 			usuarioSeleccionado.setNombre(nombre);
 			usuarioSeleccionado.setApellidos(apellidos);
@@ -76,10 +71,8 @@ public class ControladorP_AgregarUsuario {
 
 			au.modificarUsuario(usuarioSeleccionado);
 
-			Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-			alerta.setTitle("Modificar Usuario");
-			alerta.setHeaderText("Usuario modificado correctamente");
-			alerta.showAndWait();
+			Alertas a = new Alertas();
+			a.alertaConfirmation("Usuario modificado correctamente");
 		}
 
 		borrarCampos();
@@ -118,12 +111,8 @@ public class ControladorP_AgregarUsuario {
 			App.setRoot("P_Usuario");
 			cargarUsuario(usuarioSeleccionado);
 		} else {
-			// Mostrar advertencia si no hay usuario seleccionado para modificar
-			Alert alerta = new Alert(Alert.AlertType.WARNING);
-			alerta.setTitle("Modificar Usuario");
-			alerta.setHeaderText("No hay usuario seleccionado");
-			alerta.setContentText("Seleccione un usuario para modificar.");
-			alerta.showAndWait();
+			Alertas a = new Alertas();
+			a.alertaWarning("No hay usuario seleccionado, seleccione un usuario para modificar.");
 		}
 	}
 }

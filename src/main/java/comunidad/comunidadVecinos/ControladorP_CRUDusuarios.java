@@ -14,6 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo_DAO.AgregarUsuarios;
+import modelo_DAO.Alertas;
 import modelo_DAO.ListarUsuarios;
 import modelo_DTO.Usuarios;
 
@@ -59,16 +60,11 @@ public class ControladorP_CRUDusuarios {
 		Usuarios usuarioSeleccionado = tablaUsuarios.getSelectionModel().getSelectedItem();
 
 		if (usuarioSeleccionado != null) {
-			// Guarda el usuario seleccionado en App para pasarlo al otro controlador
 			App.usuarioParaEditar = usuarioSeleccionado;
-			App.setRoot("P_AgregarUsuario"); // Cambia a la pantalla de agregar/modificar usuario
+			App.setRoot("P_AgregarUsuario");
 		} else {
-			// Muestra un mensaje de advertencia si no se seleccionó un usuario
-			Alert alerta = new Alert(Alert.AlertType.WARNING);
-			alerta.setTitle("Modificar Usuario");
-			alerta.setHeaderText("No hay usuario seleccionado");
-			alerta.setContentText("Seleccione un usuario para modificar.");
-			alerta.showAndWait();
+			Alertas a= new Alertas();
+			a.alertaWarning("No has seleccionado ningún usuario");
 		}
 	}
 	
@@ -95,13 +91,8 @@ public class ControladorP_CRUDusuarios {
             	  tablaUsuarios.getSelectionModel().clearSelection();
             }
         } else {
-            // Mostrar un mensaje de advertencia si no hay ningún usuario seleccionado
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText(null);
-            alert.setTitle("Advertencia");
-            alert.setContentText("Por favor, selecciona un usuario para eliminar.");
-            alert.showAndWait();
-           
+        	Alertas a = new Alertas();
+            a.alertaWarning("Por favor, selecciona un usuario para eliminar");
         }
     }
 	

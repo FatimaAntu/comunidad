@@ -12,8 +12,8 @@ public class ControladorP_Cumpleanos {
 	
 	private void actualizarLabelNombre() {
 		InicioSesion is = new InicioSesion();
-        String nombre = is.extraerN(); // Obtener el nombre extraído de la base de datos
-        labelNombre.setText(nombre); // Establecer el nombre en el label
+        String nombre = is.extraerN();
+        labelNombre.setText(nombre);
 	}
 	@FXML
 	public void initialize() {	

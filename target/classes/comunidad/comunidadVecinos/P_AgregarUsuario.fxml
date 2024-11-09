@@ -21,7 +21,7 @@
       </ImageView>
       <Button layoutX="166.0" layoutY="522.0" mnemonicParsing="false" onAction="#AggUsuario" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Guardar" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="251.0" />
       <Button layoutX="248.0" layoutY="522.0" mnemonicParsing="false" onAction="#borrarCampos" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="100.0" />
-      <Label layoutX="-2.0" layoutY="81.0" prefHeight="30.0" prefWidth="62.0" text="Nombre de Usuario" AnchorPane.leftAnchor="50.0">
+      <Label layoutX="-2.0" layoutY="81.0" prefHeight="30.0" prefWidth="134.0" text="Nombre de Usuario" AnchorPane.leftAnchor="50.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

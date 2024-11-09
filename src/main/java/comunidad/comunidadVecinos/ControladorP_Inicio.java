@@ -11,7 +11,6 @@ public class ControladorP_Inicio {
 
 	@FXML
 	private void cargarInicioSesion() throws IOException {
-
 		App.setRoot("P_InicioSesion");
 	}
 

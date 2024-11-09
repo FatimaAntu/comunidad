@@ -23,7 +23,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="250.0" layoutY="470.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="110.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar">
+      <Button layoutX="250.0" layoutY="470.0" mnemonicParsing="false" onAction="#borrarCampos" prefHeight="38.0" prefWidth="110.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

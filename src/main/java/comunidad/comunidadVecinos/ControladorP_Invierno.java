@@ -24,44 +24,14 @@ public class ControladorP_Invierno {
 	
 	private void actualizarLabelNombre() {
 		InicioSesion is = new InicioSesion();
-        String nombre = is.extraerN(); // Obtener el nombre extraído de la base de datos
-        labelNombre.setText(nombre); // Establecer el nombre en el label
+        String nombre = is.extraerN();
+        labelNombre.setText(nombre);
 	}
 	
 	@FXML
 	public void initialize() {
 		actualizarLabelNombre();
 	}
-    /*@FXML
-    public void initialize() {
-        // Configura la columna de botones
-        botones36.setCellFactory(new Callback<>() {
-            @Override
-            public TableCell<Actividades, Void> call(final TableColumn<Actividades, Void> param) {
-                return new TableCell<>() {
-                    private final Button boton = new Button("Acción");
-
-                    {
-                        boton.setOnAction(event -> {
-                        	Actividades actividad = getTableView().getItems().get(getIndex());
-                            // Acción cuando se presiona el botón
-                            System.out.println("Botón presionado para: " + actividad);
-                        });
-                    }
-
-                    @Override
-                    protected void updateItem(Void item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty) {
-                            setGraphic(null);
-                        } else {
-                            setGraphic(boton);
-                        }
-                    }
-                };
-            }
-        });
-        }*/
 	
 	@FXML
 	private void cerrarSesion() throws IOException {
