@@ -62,11 +62,20 @@ public class Sugerencias {
 	public void setTexto(String texto) {
 		Texto = texto;
 	}
+	
+	
 
 	@Override
 	public String toString() {
 		return "Sugerencias [idSugerencia=" + idSugerencia + ", Nombre=" + Nombre + ", Apellido=" + Apellido
-				 + ",Texto=" + Texto + "]";
+				 + ", Texto=" + Texto + "]";
 	}
+
+	public static Object getSelectionModel() {
+		
+		return null;
+	}
+
+	
 
 }

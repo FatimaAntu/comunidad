@@ -14,4 +14,9 @@ public class ControladorP_Inicio {
 		App.setRoot("P_InicioSesion");
 	}
 
+	@FXML
+	private void cargarCrearSugerencias() throws IOException {
+		App.setRoot("P_CrearSugerencia");
+	}
+
 }
