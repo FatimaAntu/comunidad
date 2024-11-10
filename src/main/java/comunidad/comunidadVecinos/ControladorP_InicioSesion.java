@@ -1,11 +1,10 @@
 package comunidad.comunidadVecinos;
 
 import java.io.IOException;
-
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import modelo_DAO.Alertas;
 import modelo_DAO.InicioSesion;
 
 public class ControladorP_InicioSesion {
@@ -15,47 +14,45 @@ public class ControladorP_InicioSesion {
 
 	@FXML
 	private PasswordField txtPassword;
+	
+	private final Alertas alerta = new Alertas();
 
-
-	// metodo que se ejecuta al presionar el boton de login
 	@FXML
 	private void iniciarSesion() {
 		String usuario = txtUsuario.getText();
 		String password = txtPassword.getText();
-   
+
+		if (usuario.isBlank() || password.isBlank()) {
+			alerta.alertaWarning("Todos los campos son obligatorios");
+			return;
+		}
+
 		if (validarCredenciales(usuario, password)) {
 			try {
 				if ("adm".equals(usuario) && "123".equals(password)) {
-					
-				cargarPCRUDusuarios ();
-			}else {
-				cargarPCalendario();}
+					cargarPCRUDusuarios();
+				} else {
+					cargarPCalendario();
 				}
-			 catch (IOException e) {
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
-			Alert alerta = new Alert(Alert.AlertType.ERROR);
-			alerta.setTitle("Error de inicio de sesión");
-			alerta.setHeaderText("Credenciales incorrectas");
-			alerta.setContentText("Por favor, verifica tu usuario y contraseña.");
-			alerta.showAndWait();
+			alerta.alertaError("Por favor, verifica tu usuario y contraseña");
 		}
 	}
-	
+
 	private boolean validarCredenciales(String usuario, String password) {
-		InicioSesion is = new InicioSesion();
-		is.extraerNombr(usuario);
-		return is.validarUsuario(usuario).equals(password);
+		InicioSesion inicioSesion = new InicioSesion();
+		inicioSesion.agregarNombreUsuario(usuario);
+		return password.equals(inicioSesion.validarUsuario(usuario));
 	}
-	
+
 	@FXML
 	public void borrarCampos() {
-		txtUsuario.setText("");
-		txtPassword.setText("");
+		txtUsuario.clear();
+		txtPassword.clear();
 	}
-	
-	
 
 	@FXML
 	private void cargarPCalendario() throws IOException {
@@ -66,9 +63,9 @@ public class ControladorP_InicioSesion {
 	private void cargarPinicio() throws IOException {
 		App.setRoot("P_Inicio");
 	}
-	
+
 	@FXML
-	private void cargarPCRUDusuarios()throws IOException {
+	private void cargarPCRUDusuarios() throws IOException {
 		App.setRoot("P_CRUDusuarios");
 	}
 }

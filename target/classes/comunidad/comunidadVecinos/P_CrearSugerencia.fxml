@@ -19,8 +19,8 @@
          
       </ImageView>
       
-      <Button layoutX="66.0" layoutY="559.0" mnemonicParsing="false" onAction="#agregarSugerencia" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Guardar" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="286.79999999999995" />
-      <Button layoutX="280.0" layoutY="559.0" mnemonicParsing="false"  prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="71.20000000000005" />
+      <Button layoutX="66.0" layoutY="559.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Guardar" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="286.79999999999995" />
+      <Button layoutX="280.0" layoutY="559.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="71.20000000000005" />
       
       <!-- Nombre -->
       <Label layoutX="55.0" layoutY="187.0" prefHeight="30.0" prefWidth="62.0" text="Nombre " AnchorPane.leftAnchor="55.0">

@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TableColumn;
 import modelo_DAO.AgregarSugerencia;
 import modelo_DAO.Alertas;
+import modelo_DAO.InicioSesion;
 import modelo_DAO.ListarSugerencias;
 import modelo_DTO.Sugerencias;
 
@@ -35,8 +36,14 @@ public class ControladorP_ListaSugerencias {
 
 	private ObservableList<Sugerencias> listaSugerencias;
 
-	@FXML
+	
+	private void actualizarLabelNombre() {
+		InicioSesion is = new InicioSesion();
+        String nombre = is.extraerN();
+        labelNombre.setText(nombre);
+	}
 
+	@FXML
 	public void agregarSugerenciaATabla(Sugerencias nuevaSugerencia) {
 		// Agregar la sugerencia a la tabla 
 		tablaSugerencias.getItems().add(nuevaSugerencia);
@@ -55,6 +62,7 @@ public class ControladorP_ListaSugerencias {
 	public void initialize() {
 		listaSugerencias = FXCollections.observableArrayList();
 		tablaSugerencias.setItems(listaSugerencias);
+		actualizarLabelNombre();
 
 		leerSugerencias();
 	}

@@ -4,10 +4,12 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import modelo_DAO.AgregarSugerencia;
 import modelo_DAO.Alertas;
+import modelo_DAO.InicioSesion;
 import modelo_DTO.Sugerencias;
 
 public class ControladorP_CrearSugerencia {
@@ -27,6 +29,19 @@ public class ControladorP_CrearSugerencia {
 	@FXML
 	private TextField txtTexto;
 
+	@FXML
+    private Label labelNombre;
+	
+	private void actualizarLabelNombre() {
+		InicioSesion is = new InicioSesion();
+        String nombre = is.extraerN();
+        labelNombre.setText(nombre);
+	}
+	
+	@FXML
+	public void initialize() {
+		actualizarLabelNombre();
+	}
 	@FXML
 	private void agregarSugerencia() throws IOException {
 		String nombre = txtNombre.getText().trim();

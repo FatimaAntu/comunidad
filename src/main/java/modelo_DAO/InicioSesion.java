@@ -23,7 +23,7 @@ public class InicioSesion {
 		return pssw;
 	}
 
-	public void extraerNombr(String username) {
+	public void agregarNombreUsuario(String username) {
 		String sqlSelect = "SELECT Nombre, Apellidos FROM comunidad.usuarios WHERE NombreUSuario = ?";
 		String sqlDelete = "DELETE FROM comunidad.nombreusuario";
 		String sqlInsert = "INSERT INTO comunidad.nombreusuario (Nombre) VALUES (?)";

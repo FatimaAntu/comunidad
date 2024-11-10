@@ -19,8 +19,8 @@
             <Image url="@../../img/FLECHA.png" />
          </image>
       </ImageView>
-      <Button layoutX="111.0" layoutY="522.0" mnemonicParsing="false" onAction="#cargarAgregarSugerencia" prefHeight="38.0" prefWidth="130.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Crear Sugerencia" />
-      <Button layoutX="259.0" layoutY="522.0" mnemonicParsing="false" onAction="#mostrarMisSugerencias" prefHeight="38.0" prefWidth="130.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Mis Sugerencias" />
+      <Button layoutX="113.0" layoutY="522.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="130.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Crear Sugerencia" />
+      <Button layoutX="249.0" layoutY="522.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="130.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Mis Sugerencias" />
      
       <TableView fx:id="tablaSugerencias" layoutX="42.0" layoutY="132.0" prefHeight="370.0" prefWidth="417.0" />
       
@@ -29,7 +29,7 @@
             <Image url="@../../img/TituloSugerencias.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="454.0" layoutY="21.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="450.0" layoutY="12.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/LOGOUT.png" />
          </image>
