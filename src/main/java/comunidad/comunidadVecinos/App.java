@@ -14,6 +14,8 @@ public class App extends Application {
 	public static Usuarios usuarioParaEditar; // Usuario temporal para edición
 	private static Scene scene;
 
+	
+	
 	@Override
 	public void start(Stage stage) throws IOException {
 		scene = new Scene(loadFXML("P_Inicio"));
@@ -24,7 +26,7 @@ public class App extends Application {
 		stage.show();
 	}
 
-	static void setRoot(String fxml) throws IOException {
+	public static void setRoot(String fxml) throws IOException {
 		Parent root = loadFXML(fxml);
 
 		scene.setRoot(root);
@@ -32,6 +34,8 @@ public class App extends Application {
 		Stage stage = (Stage) scene.getWindow();
 		stage.sizeToScene();
 	}
+	FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("comunidad/comunidadVecinos/P_ListaSugerencias.fxml"));
+ 
 
 	private static Parent loadFXML(String fxml) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
@@ -41,4 +45,7 @@ public class App extends Application {
 	public static void main(String[] args) {
 		launch();
 	}
+	
+
+	
 }

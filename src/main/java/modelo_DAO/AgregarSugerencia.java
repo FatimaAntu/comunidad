@@ -9,13 +9,13 @@ public class AgregarSugerencia {
 
     //agregar una sugerencia a la base de datos
     public void agregarSugerencia(Sugerencias sugerencia) {
-        String sql = "INSERT INTO comunidad.sugerencias (Nombre, Apellido, Texto) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO comunidad.sugerencias (Nombre, Apellidos, Texto) VALUES (?, ?, ?)";
 
         try (Connection conn = Utilidades.Util.dameConexion();
              PreparedStatement pst = conn.prepareStatement(sql)) {
             
             pst.setString(1, sugerencia.getNombre());
-            pst.setString(2, sugerencia.getApellido());
+            pst.setString(2, sugerencia.getApellidos());
             pst.setString(3, sugerencia.getTexto());
             
             pst.executeUpdate();
@@ -25,6 +25,7 @@ public class AgregarSugerencia {
     }
 
 	public boolean eliminarSugerencia(Sugerencias sugerenciaSeleccionada) {
+		
 		   String sql = "DELETE FROM comunidad.sugerencias WHERE idUsuario = ?";
 
 		    try (Connection conn = Utilidades.Util.dameConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {

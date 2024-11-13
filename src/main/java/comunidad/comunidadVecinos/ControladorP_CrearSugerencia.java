@@ -24,7 +24,7 @@ public class ControladorP_CrearSugerencia {
 	private TextField txtNombre;
 
 	@FXML
-	private TextField txtApellido;
+	private TextField txtApellidos;
 
 	@FXML
 	private TextField txtTexto;
@@ -45,15 +45,15 @@ public class ControladorP_CrearSugerencia {
 	@FXML
 	private void agregarSugerencia() throws IOException {
 		String nombre = txtNombre.getText().trim();
-		String apellido = txtApellido.getText().trim();
+		String apellidos = txtApellidos.getText().trim();
 		String texto = txtTexto.getText().trim();
 
-		if (nombre.isEmpty() || apellido.isEmpty() || texto.isEmpty()) {
+		if (nombre.isEmpty() || apellidos.isEmpty() || texto.isEmpty()) {
 			new Alertas().alertaWarning("Todos los campos son obligatorios.");
 			return;
 		}
 
-		Sugerencias nuevaSugerencia = new Sugerencias(nombre, apellido, texto);
+		Sugerencias nuevaSugerencia = new Sugerencias(nombre, apellidos, texto);
 		AgregarSugerencia agregarSugerenciaDAO = new AgregarSugerencia();
 		agregarSugerenciaDAO.agregarSugerencia(nuevaSugerencia);
 
@@ -63,7 +63,7 @@ public class ControladorP_CrearSugerencia {
 		alerta.showAndWait();
 
 		txtNombre.clear();
-		txtApellido.clear();
+		txtApellidos.clear();
 		txtTexto.clear();
 
 		// Cerrar la ventana actual
@@ -73,6 +73,7 @@ public class ControladorP_CrearSugerencia {
 		// Regresar a la vista anterior y pasar la sugerencia para que se muestre en la tabla
 		cargarListaSugerencias(nuevaSugerencia);
 	}
+	
 
 	@FXML
 	private void borrar() {

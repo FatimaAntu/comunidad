@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,10 +20,15 @@
             <Image url="@../../img/FLECHA.png" />
          </image>
       </ImageView>
-      <Button layoutX="113.0" layoutY="522.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="130.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Crear Sugerencia" />
-      <Button layoutX="249.0" layoutY="522.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="130.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Mis Sugerencias" />
      
-      <TableView fx:id="tablaSugerencias" layoutX="42.0" layoutY="132.0" prefHeight="370.0" prefWidth="417.0" />
+      
+      <TableView fx:id="tablaSugerencias" layoutX="42.0" layoutY="132.0" prefHeight="370.0" prefWidth="417.0">
+   <columns>
+    <TableColumn fx:id="colTexto" prefWidth="417.59998321533203" />
+            <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
+     
+   </columns>
+</TableView>
       
       <ImageView fitHeight="93.0" fitWidth="404.0" layoutX="39.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -49,5 +55,11 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <Button layoutX="123.0" layoutY="513.0" mnemonicParsing="false" onAction="#cargarAgregarSugerencia" prefHeight="57.0" prefWidth="254.0" style="-fx-background-radius: 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Crear Sugerencia">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      
    </children>
 </AnchorPane>

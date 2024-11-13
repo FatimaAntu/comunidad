@@ -4,22 +4,22 @@ public class Sugerencias {
 
 	private int idSugerencia;
 	private String Nombre;
-	private String Apellido;
+	private String Apellidos;
 	private String Texto;
 
-	public Sugerencias(int idSugerencia, String nombre, String apellido, String texto) {
+	public Sugerencias(int idSugerencia, String nombre, String apellidos, String texto) {
 		super();
 		this.idSugerencia = idSugerencia;
 		Nombre = nombre;
-		Apellido = apellido;
+		Apellidos = apellidos;
 		Texto = texto;
 	}
 	
 	//constructor sin idSugerencia
-	public Sugerencias(String nombre, String apellido, String texto) {
+	public Sugerencias(String nombre, String apellidos, String texto) {
 		super();
 		Nombre = nombre;
-		Apellido = apellido;
+		Apellidos = apellidos;
 		Texto = texto;
 	}
 
@@ -45,12 +45,12 @@ public class Sugerencias {
 		Nombre = nombre;
 	}
 
-	public String getApellido() {
-		return Apellido;
+	public String getApellidos() {
+		return Apellidos;
 	}
 
-	public void setApellido(String apellido) {
-		Apellido = apellido;
+	public void setApellidos(String apellidos) {
+		Apellidos = apellidos;
 	}
 
 	
@@ -67,7 +67,7 @@ public class Sugerencias {
 
 	@Override
 	public String toString() {
-		return "Sugerencias [idSugerencia=" + idSugerencia + ", Nombre=" + Nombre + ", Apellido=" + Apellido
+		return "Sugerencias [idSugerencia=" + idSugerencia + ", Nombre=" + Nombre + ", Apellidos=" + Apellidos
 				 + ", Texto=" + Texto + "]";
 	}
 
@@ -76,6 +76,5 @@ public class Sugerencias {
 		return null;
 	}
 
-	
 
 }
