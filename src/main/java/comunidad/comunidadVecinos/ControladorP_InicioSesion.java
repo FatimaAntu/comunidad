@@ -8,7 +8,6 @@ import modelo_DAO.Alertas;
 import modelo_DAO.InicioSesion;
 
 public class ControladorP_InicioSesion {
-
 	@FXML
 	private TextField txtUsuario;
 
@@ -44,7 +43,6 @@ public class ControladorP_InicioSesion {
 
 	private boolean validarCredenciales(String usuario, String password) {
 		InicioSesion inicioSesion = new InicioSesion();
-		inicioSesion.agregarNombreUsuario(usuario);
 		return password.equals(inicioSesion.validarUsuario(usuario));
 	}
 

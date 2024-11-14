@@ -2,7 +2,7 @@ package comunidad.comunidadVecinos;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import modelo_DAO.InicioSesion;
+import modelo_DTO.Usuario_global;
 
 import java.io.IOException;
 
@@ -10,15 +10,9 @@ public class ControladorP_Actividades {
 	@FXML
     private Label labelNombre;
 	
-	private void actualizarLabelNombre() {
-		InicioSesion is = new InicioSesion();
-        String nombre = is.extraerN();
-        labelNombre.setText(nombre);
-	}
-	
 	@FXML
 	public void initialize() {	
-	actualizarLabelNombre();
+    labelNombre.setText(Usuario_global.getInstance().getNombreusuarioglobal());
 	}
 	
 	

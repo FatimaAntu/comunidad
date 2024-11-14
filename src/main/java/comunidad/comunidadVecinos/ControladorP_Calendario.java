@@ -10,7 +10,7 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
-import modelo_DAO.InicioSesion;
+import modelo_DTO.Usuario_global;
 
 public class ControladorP_Calendario {
 	@FXML
@@ -26,18 +26,13 @@ public class ControladorP_Calendario {
         mesActual = YearMonth.now();
     }
 	
-	private void actualizarLabelNombre() {
-		InicioSesion is = new InicioSesion();
-        String nombre = is.extraerN(); // Obtener el nombre extraído de la base de datos
-        labelNombre.setText(nombre); // Establecer el nombre en el label
-	}
     @FXML
     public void initialize() {
         // Configura las restricciones solo una vez
         configurarRestricciones();
         // Método de inicialización donde se llama a actualizarMes para cargar el mes actual
         actualizarMes();
-        actualizarLabelNombre();
+        labelNombre.setText(Usuario_global.getInstance().getNombreusuarioglobal());
     }
 
     private void actualizarMes() {
@@ -65,7 +60,7 @@ public class ControladorP_Calendario {
         int diasEnMes = mes.lengthOfMonth();
 
         for (int i = 0; i < diasEnMes; i++) {
-            LocalDate dia = mes.atDay(i + 1);
+            //LocalDate dia = mes.atDay(i + 1);
 
             // Cada día en un StackPane (para facilitar la adición de actividades en el futuro)
             StackPane diaPane = new StackPane(new Label(String.valueOf(i + 1)));

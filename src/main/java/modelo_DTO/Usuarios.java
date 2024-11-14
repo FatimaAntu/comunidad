@@ -6,6 +6,7 @@ public class Usuarios {
 	private String Nombre;
 	private String Apellidos;
 	private String Vivienda;
+	private String NumHijos;
 	private String NombreUsuario;
 	private String Contrasena;
 
@@ -56,26 +57,37 @@ public class Usuarios {
 	public void setContrasena(String contrasena) {
 		Contrasena = contrasena;
 	}
+	
+	public String getNumHijos() {
+		return NumHijos;
+	}
 
+	public void setNumHijos(String Numhijos) {
+		NumHijos = Numhijos;
+	}
+
+	
 	// Constructor con todos los atributos
-	public Usuarios(int idUsuario, String nombre, String apellidos, String vivienda, String nombreUsuario,
+	public Usuarios(int idUsuario, String nombre, String apellidos, String vivienda, String Numhijos, String nombreUsuario,
 			String contrasena) {
 		super();
 		this.idUsuario = idUsuario;
 		Nombre = nombre;
 		Apellidos = apellidos;
 		Vivienda = vivienda;
+		NumHijos = Numhijos;
 		NombreUsuario = nombreUsuario;
 		Contrasena = contrasena;
 	}
 
 	// Constructor sin el idUsuario ya que este será autoincrement, por lo tanto no
 	// hará falta dicho atributo para realizar algunas consultas
-	public Usuarios(String nombre, String apellidos, String vivienda, String nombreUsuario, String contrasena) {
+	public Usuarios(String nombre, String apellidos, String vivienda, String Numhijos, String nombreUsuario, String contrasena) {
 		super();
 		Nombre = nombre;
 		Apellidos = apellidos;
 		Vivienda = vivienda;
+		NumHijos = Numhijos;
 		NombreUsuario = nombreUsuario;
 		Contrasena = contrasena;
 	}
@@ -87,7 +99,7 @@ public class Usuarios {
 	@Override
 	public String toString() {
 		return "Usuarios [idUsuario=" + idUsuario + ", Nombre=" + Nombre + ", Apellidos=" + Apellidos + ", Vivienda="
-				+ Vivienda + ", NombreUsuario=" + NombreUsuario + ", Contrasena=" + Contrasena + "]";
+				+ Vivienda + ", Numero de Hijos=" + NumHijos + ", Nombre de Usuario=" + NombreUsuario + ", Contrasena=" + Contrasena + "]";
 	}
 
 }

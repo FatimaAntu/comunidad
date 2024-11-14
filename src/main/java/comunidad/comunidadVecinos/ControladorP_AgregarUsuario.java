@@ -2,7 +2,6 @@ package comunidad.comunidadVecinos;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import modelo_DAO.AgregarUsuarios;
@@ -16,6 +15,8 @@ public class ControladorP_AgregarUsuario {
 	private TextField txtApellidos;
 	@FXML
 	private TextField txtVivienda;
+	@FXML
+	private TextField txtNumHijos;
 	@FXML
 	private PasswordField txtPassword;
 	@FXML
@@ -37,12 +38,13 @@ public class ControladorP_AgregarUsuario {
 		String nombre = txtNombre.getText();
 		String apellidos = txtApellidos.getText();
 		String vivienda = txtVivienda.getText();
+		String numHijos = txtNumHijos.getText(); 
 		String nombreUsuario = txtVivienda.getText(); 
 		String contrasena = txtPassword.getText();
 		String repeatContrasena = txtRepeatPassword.getText();
 		
 		// Verificar  campos no esten vacios
-		if (nombre.isEmpty() || apellidos.isEmpty() || vivienda.isEmpty()|| nombreUsuario.isEmpty()|| contrasena.isEmpty()|| repeatContrasena.isEmpty()) {
+		if (nombre.isEmpty() || apellidos.isEmpty() || vivienda.isEmpty() || numHijos.isEmpty()|| nombreUsuario.isEmpty()|| contrasena.isEmpty()|| repeatContrasena.isEmpty()) {
 			Alertas a = new Alertas();
             a.alertaWarning("Todos los campos son obligatorios");
             return;
@@ -57,7 +59,7 @@ public class ControladorP_AgregarUsuario {
 		AgregarUsuarios au = new AgregarUsuarios();
 
 		if (usuarioSeleccionado == null) {
-			Usuarios nuevoUsuario = new Usuarios(nombre, apellidos, vivienda, nombreUsuario, contrasena);
+			Usuarios nuevoUsuario = new Usuarios(nombre, apellidos, vivienda, numHijos, nombreUsuario, contrasena);
 			au.AgregarUsuario(nuevoUsuario);
 
 			Alertas a = new Alertas();
@@ -66,6 +68,7 @@ public class ControladorP_AgregarUsuario {
 			usuarioSeleccionado.setNombre(nombre);
 			usuarioSeleccionado.setApellidos(apellidos);
 			usuarioSeleccionado.setVivienda(vivienda);
+			usuarioSeleccionado.setNumHijos(numHijos);
 			usuarioSeleccionado.setNombreUsuario(nombreUsuario);
 			usuarioSeleccionado.setContrasena(contrasena);
 
@@ -85,6 +88,7 @@ public class ControladorP_AgregarUsuario {
 		txtNombre.setText("");
 		txtApellidos.setText("");
 		txtVivienda.setText("");
+		txtNumHijos.setText("");
 		txtPassword.setText("");
 		txtRepeatPassword.setText("");
 	}
@@ -98,6 +102,7 @@ public class ControladorP_AgregarUsuario {
 		txtNombre.setText(usuario.getNombre());
 		txtApellidos.setText(usuario.getApellidos());
 		txtVivienda.setText(usuario.getVivienda());
+		txtNumHijos.setText(usuario.getNumHijos());
 		txtPassword.setText(usuario.getContrasena());
 		txtRepeatPassword.setText(usuario.getContrasena());
 		this.usuarioSeleccionado = usuario;

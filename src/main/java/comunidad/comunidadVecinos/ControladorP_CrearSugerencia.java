@@ -33,9 +33,9 @@ public class ControladorP_CrearSugerencia {
     private Label labelNombre;
 	
 	private void actualizarLabelNombre() {
-		InicioSesion is = new InicioSesion();
-        String nombre = is.extraerN();
-        labelNombre.setText(nombre);
+		//InicioSesion is = new InicioSesion();
+        //String nombre = is.extraerN();
+        //labelNombre.setText(nombre);
 	}
 	
 	@FXML

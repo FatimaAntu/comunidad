@@ -20,13 +20,14 @@ public class ListarUsuarios {
 				String Nombre = rs.getString("Nombre");
 				String Apellidos = rs.getString("Apellidos");
 				String Vivienda = rs.getString("Vivienda");
+				String NumHijos = rs.getString("NumHijos");
 				String NombreUsuario = rs.getString("NombreUsuario");
 				String Contrasena = rs.getString("Contrasena");
 				
 				if(IdUsuario==13) {
 					
 				}else {
-					Usuarios usuario = new Usuarios(IdUsuario, Nombre, Apellidos, Vivienda, NombreUsuario, Contrasena);
+					Usuarios usuario = new Usuarios(IdUsuario, Nombre, Apellidos, Vivienda, NumHijos, NombreUsuario, Contrasena);
 					usuarios.add(usuario);
 				}
 			}

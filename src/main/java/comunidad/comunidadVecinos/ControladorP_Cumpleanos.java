@@ -5,19 +5,15 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import modelo_DAO.InicioSesion;
+import modelo_DTO.Usuario_global;
 
 public class ControladorP_Cumpleanos {
 	@FXML
     private Label labelNombre;
 	
-	private void actualizarLabelNombre() {
-		InicioSesion is = new InicioSesion();
-        String nombre = is.extraerN();
-        labelNombre.setText(nombre);
-	}
 	@FXML
 	public void initialize() {	
-	actualizarLabelNombre();
+    labelNombre.setText(Usuario_global.getInstance().getNombreusuarioglobal());
 	}
 	@FXML
 	private void cerrarSesion() throws IOException {

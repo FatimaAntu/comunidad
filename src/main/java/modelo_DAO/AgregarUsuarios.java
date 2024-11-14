@@ -7,15 +7,16 @@ import modelo_DTO.Usuarios;
 
 public class AgregarUsuarios {
 	public void AgregarUsuario(Usuarios user) {
-		String sql = "INSERT INTO comunidad.usuarios (Nombre, Apellidos, Vivienda, NombreUsuario, Contrasena) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO comunidad.usuarios (Nombre, Apellidos, Vivienda, NumHijos, NombreUsuario, Contrasena) VALUES (?, ?, ?, ?, ?, ?)";
 
 		try (Connection conn = Utilidades.Util.dameConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
 
 			ps.setString(1, user.getNombre());
 			ps.setString(2, user.getApellidos());
 			ps.setString(3, user.getVivienda());
-			ps.setString(4, user.getNombreUsuario());
-			ps.setString(5, user.getContrasena());
+			ps.setString(4, user.getNumHijos());
+			ps.setString(5, user.getNombreUsuario());
+			ps.setString(6, user.getContrasena());
 
 			ps.executeUpdate();
 		} catch (Exception e) {
@@ -23,22 +24,20 @@ public class AgregarUsuarios {
 		}
 	}
 
-	public boolean modificarUsuario(Usuarios user) {
-		String sql = "UPDATE comunidad.usuarios SET Nombre = ?, Apellidos = ?, Vivienda = ?, NombreUsuario = ?, Contrasena = ? WHERE IdUsuario = ?";
+	public void modificarUsuario(Usuarios user) {
+		String sql = "UPDATE comunidad.usuarios SET Nombre = ?, Apellidos = ?, Vivienda = ?, NumHijos = ?, NombreUsuario = ?, Contrasena = ? WHERE IdUsuario = ?";
 
 		try (Connection conn = Utilidades.Util.dameConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
 			ps.setString(1, user.getNombre());
 			ps.setString(2, user.getApellidos());
 			ps.setString(3, user.getVivienda());
-			ps.setString(4, user.getNombreUsuario());
-			ps.setString(5, user.getContrasena());
-			ps.setInt(6, user.getIdUsuario());
-
-			int filasActualizadas = ps.executeUpdate();
-			return filasActualizadas > 0;
+			ps.setString(4, user.getNumHijos());
+			ps.setString(5, user.getNombreUsuario());
+			ps.setString(6, user.getContrasena());
+			ps.setInt(7, user.getIdUsuario());
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return false;
 		}
 	}
 	

@@ -8,6 +8,7 @@ public class Actividades {
 	private int Edad;
 	private Date Fecha;
 	private String Hora;
+	private String HoraFin;
 	private int Epoca;
 	private int Plazas;
 	
@@ -54,24 +55,25 @@ public class Actividades {
 		Plazas = plazas;
 	}
 	
-	public Actividades(int idActividad, String nombreActividad, int edad, Date fecha, String hora,
-			int plazas) {
+	public Actividades(int idActividad, String nombreActividad, Date fecha, String hora,
+			String horafin, int plazas) {
 		super();
 		IdActividad = idActividad;
 		NombreActividad = nombreActividad;
-		Edad = edad;
 		Fecha = fecha;
 		Hora = hora;
+		HoraFin = horafin;
 		Plazas = plazas;
 	}
 	
 	public Actividades(String nombreActividad, int edad, Date fecha, String hora, int epoca,
-			int plazas) {
+			String horafin, int plazas) {
 		super();
 		NombreActividad = nombreActividad;
 		Edad = edad;
 		Fecha = fecha;
 		Hora = hora;
+		HoraFin = horafin;
 		Epoca = epoca;
 		Plazas = plazas;
 	}
@@ -81,5 +83,11 @@ public class Actividades {
 	public String toString() {
 		return "Actividades [IdActividad=" + IdActividad + ", NombreActividad=" + NombreActividad + ", Edad=" + Edad
 				+ ", Fecha=" + Fecha + ", Hora=" + Hora + ", Epoca=" + Epoca + ", Plazas=" + Plazas + "]";
+	}
+	public String getHoraFin() {
+		return HoraFin;
+	}
+	public void setHoraFin(String horaFin) {
+		HoraFin = horaFin;
 	};
 }

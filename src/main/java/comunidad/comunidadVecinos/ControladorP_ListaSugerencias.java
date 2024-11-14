@@ -38,9 +38,9 @@ public class ControladorP_ListaSugerencias {
 
 	
 	private void actualizarLabelNombre() {
-		InicioSesion is = new InicioSesion();
-        String nombre = is.extraerN();
-        labelNombre.setText(nombre);
+		//InicioSesion is = new InicioSesion();
+        //String nombre = is.extraerN();
+        //labelNombre.setText(nombre);
 	}
 
 	@FXML
