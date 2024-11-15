@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -28,6 +29,7 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
+     
       <Label layoutX="164.0" layoutY="202.0" prefHeight="30.0" prefWidth="168.0" text="Nombre de Usuario">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -52,5 +54,10 @@
             <Image url="@../../img/TITULO_InicioSesion.png" />
          </image>
       </ImageView>
+        <Hyperlink fx:id="olvideContrasenaLink" layoutX="165.0" layoutY="420.0" onAction="#abrirRecuperacionContrasena" prefHeight="38.0" prefWidth="190.0" text="¿Olvidaste tu contraseña?" textFill="#3e18c9">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Hyperlink>
+      
    </children>
 </AnchorPane>

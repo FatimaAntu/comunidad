@@ -1,9 +1,10 @@
 package modelo_DAO;
 
-import java.util.Optional;
+
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
+
 
 public class Alertas {
 	public void alertaWarning(String texto) {
@@ -26,4 +27,16 @@ public class Alertas {
 		alerta.setHeaderText(texto);
 		alerta.showAndWait();
 	}
-}
+
+	public void alertaInfo(String mensaje) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+	}
+		
+	}
+
+	
+

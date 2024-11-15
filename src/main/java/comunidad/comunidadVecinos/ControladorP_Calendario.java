@@ -29,20 +29,20 @@ public class ControladorP_Calendario {
 	
 	private void actualizarLabelNombre() {
 		InicioSesion is = new InicioSesion();
-        String nombre = is.extraerN(); // Obtener el nombre extraído de la base de datos
-        labelNombre.setText(nombre); // Establecer el nombre en el label
+        String nombre = is.extraerN(); 
+        labelNombre.setText(nombre); 
 	}
     @FXML
     public void initialize() {
-        // Configura las restricciones solo una vez
+     
         configurarRestricciones();
-        // Método de inicialización donde se llama a actualizarMes para cargar el mes actual
+        
         actualizarMes();
         actualizarLabelNombre();
     }
 
     private void actualizarMes() {
-        // Actualiza el título del mes y año actual
+        // Actualiza el  mes y año actual
         labelMes.setText(mesActual.getMonth().name() + " " + mesActual.getYear());
 
         // Muestra el calendario del mes actual
@@ -50,11 +50,11 @@ public class ControladorP_Calendario {
     }
 
     public void mostrarCalendario(YearMonth mes) {
-    	 Locale.setDefault(new Locale("es", "ES"));
-         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy", new Locale("es", "ES"));
-         
-         // Actualiza el nombre del mes en el Label
-         labelMes.setText(mes.format(formatter));
+        Locale.setDefault(new Locale("es", "ES"));//para que salga en español
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy", new Locale("es", "ES"));
+
+        // Actualiza el nombre del mes en el Label
+        labelMes.setText(mes.format(formatter));
         gridCalendario.getChildren().clear();  // Limpiar el calendario antes de volver a mostrarlo
 
         // Días de la semana
@@ -62,13 +62,16 @@ public class ControladorP_Calendario {
         for (int i = 0; i < diasSemana.length; i++) {
             Label labelDia = new Label(diasSemana[i]);
             labelDia.setStyle("-fx-font-weight: bold; -fx-alignment: center; -fx-pref-width: 100;");
-            gridCalendario.add(labelDia, i, 0);  //primera fila para los días de la semana
+            gridCalendario.add(labelDia, i, 0);  // Primera fila para los días de la semana
         }
-        
 
         // Días del mes
         LocalDate primerDiaMes = mes.atDay(1);
-        int diaInicio = primerDiaMes.getDayOfWeek().getValue() % 7;  // Ajuste para que lunes sea el inicio (0 = lunes)
+        int diaInicio = primerDiaMes.getDayOfWeek().getValue();  // 1=lunes, 7=domingo
+
+        // Ajuste: si el primer día es domingo (7), lo pondremos en la última columna (6)
+        int columnaInicio = (diaInicio == 7) ? 6 : diaInicio - 1;
+
         int diasEnMes = mes.lengthOfMonth();
 
         for (int i = 0; i < diasEnMes; i++) {
@@ -78,12 +81,15 @@ public class ControladorP_Calendario {
             StackPane diaPane = new StackPane(new Label(String.valueOf(i + 1)));
             diaPane.setStyle("-fx-border-color: #CCCCCC; -fx-padding: 5; -fx-alignment: center;");
 
-            // Colocando el día en el calendario
-            int col = (i + diaInicio) % 7;  
-            int fila = (i + diaInicio) / 7 + 1; 
+            // Calcular la columna y la fila
+            int col = (i + columnaInicio) % 7;  // Determinar la columna (0-6)
+            int fila = (i + columnaInicio) / 7 + 1; // Determinar la fila (1-6)
+
+            // Colocar el día en la cuadrícula
             gridCalendario.add(diaPane, col, fila);
         }
     }
+
 
     private void configurarRestricciones() {
         //ajuste de las columnas 
@@ -105,13 +111,13 @@ public class ControladorP_Calendario {
     @FXML
     private void siguienteMes() {
         mesActual = mesActual.plusMonths(1);
-        actualizarMes();  // Actualizar el mes y mostrarlo
+        actualizarMes();  // actualizar el mes y muestralo
     }
 
     @FXML
     private void anteriorMes() {
         mesActual = mesActual.minusMonths(1);
-        actualizarMes();  // Actualizar el mes y mostrarlo
+        actualizarMes();
     }
 	@FXML
 	private void cerrarSesion() throws IOException {

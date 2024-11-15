@@ -35,12 +35,14 @@ public class App extends Application {
 		stage.sizeToScene();
 	}
 	FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("comunidad/comunidadVecinos/P_ListaSugerencias.fxml"));
- 
+	
 
 	private static Parent loadFXML(String fxml) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/comunidad/comunidadVecinos/" + fxml + ".fxml"));
+		
 		return fxmlLoader.load();
 	}
+	
 
 	public static void main(String[] args) {
 		launch();

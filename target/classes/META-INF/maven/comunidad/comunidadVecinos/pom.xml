@@ -36,11 +36,7 @@
 			reciente -->
 		</dependency>
 
-		<dependency>
-			<groupId>Libreria</groupId>
-			<artifactId>crud</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
