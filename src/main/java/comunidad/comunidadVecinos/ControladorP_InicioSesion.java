@@ -2,8 +2,12 @@ package comunidad.comunidadVecinos;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import modelo_DAO.Alertas;
 import modelo_DAO.InicioSesion;
 
@@ -66,4 +70,29 @@ public class ControladorP_InicioSesion {
 	private void cargarPCRUDusuarios() throws IOException {
 		App.setRoot("P_CRUDusuarios");
 	}
+	
+	   @FXML
+	    public void abrirRecuperacionContrasena() throws IOException{
+	        /*try {
+	            // Cargar el archivo FXML de la ventana de recuperación de contraseña
+	            FXMLLoader loader = new FXMLLoader(getClass().getResource("recuperarContrasenia.fxml"));
+	            Parent root = loader.load();
+	            
+	            // Crear una nueva escena para la ventana de recuperación de contraseña
+	            Scene scene = new Scene(root);
+	            
+	            // Crear una nueva ventana (stage)
+	            Stage recuperacionStage = new Stage();
+	            recuperacionStage.setTitle("Recuperación de Contraseña");
+	            recuperacionStage.setScene(scene);
+	            
+	            // Mostrar la ventana de recuperación de contraseña
+	            recuperacionStage.show();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }*/
+		   App.setRoot("RecuperarContrasenia");
+	    }
+	
+
 }
