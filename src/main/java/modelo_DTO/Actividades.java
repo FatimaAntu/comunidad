@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Actividades {
 	private int IdActividad;
+	private int IdHorario;
 	private String NombreActividad;
 	private int Edad;
 	private Date Fecha;
@@ -55,10 +56,10 @@ public class Actividades {
 		Plazas = plazas;
 	}
 	
-	public Actividades(int idActividad, String nombreActividad, Date fecha, String hora,
-			String horafin, int plazas) {
+	public Actividades(int idActividad, int idHorario, String nombreActividad, Date fecha, String hora, String horafin, int plazas) {
 		super();
 		IdActividad = idActividad;
+		IdHorario = idHorario;
 		NombreActividad = nombreActividad;
 		Fecha = fecha;
 		Hora = hora;
@@ -89,5 +90,11 @@ public class Actividades {
 	}
 	public void setHoraFin(String horaFin) {
 		HoraFin = horaFin;
+	}
+	public int getIdHorario() {
+		return IdHorario;
+	}
+	public void setIdHorario(int idHorario) {
+		IdHorario = idHorario;
 	};
 }

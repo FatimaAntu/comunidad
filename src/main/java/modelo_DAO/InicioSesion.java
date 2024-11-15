@@ -9,7 +9,7 @@ import modelo_DTO.Usuario_global;
 
 public class InicioSesion {
 	public String validarUsuario(String username) {
-		String sql = "SELECT Contrasena, Nombre, Apellidos, NumHijos FROM comunidad.usuarios WHERE NombreUSuario = ?";
+		String sql = "SELECT Contrasena, Nombre, Apellidos, NumHijos, Vivienda FROM comunidad.usuarios WHERE NombreUSuario = ?";
 		Connection conn = Utilidades.Util.dameConexion();
 		String pssw = "";
 		String name = "";
@@ -21,9 +21,11 @@ public class InicioSesion {
 				String nombre = (rs.getString("Nombre"));
 				String apellidos = (rs.getString("Apellidos"));
 				int numHijos = (rs.getInt("NumHijos"));
+				String vivienda = (rs.getString("Vivienda"));
 				name = (nombre +" "+ apellidos);
 				Usuario_global.getInstance().setNombre(name);
 				Usuario_global.getInstance().setNumHijos(numHijos);
+				Usuario_global.getInstance().setVivienda(vivienda);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

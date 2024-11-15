@@ -19,7 +19,7 @@
          </image>
          
       </ImageView>
-      <Button layoutX="104.0" layoutY="611.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="316.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Reservar" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="435.2" />
+      <Button layoutX="104.0" layoutY="611.0" mnemonicParsing="false" onAction="#ReservarPlaza" prefHeight="40.0" prefWidth="316.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Reservar" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="435.2" />
       <Button layoutX="436.0" layoutY="611.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="316.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar" AnchorPane.leftAnchor="436.0" AnchorPane.rightAnchor="103.20000000000005" />
       <TableView id="tabla3_6" fx:id="tablaActividades36" layoutX="16.0" layoutY="194.0" prefHeight="366.0" prefWidth="402.0">
         <columns>

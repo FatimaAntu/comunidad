@@ -4,6 +4,7 @@ public class Usuario_global {
 	private static Usuario_global instance = null;
 	private String nombreusuarioglobal;
 	private int numHijos;
+	private String vivienda;
 
 	private Usuario_global() {}
 	
@@ -27,6 +28,14 @@ public class Usuario_global {
 
 	public void setNumHijos(int numHijos) {
 		this.numHijos = numHijos;
+	}
+
+	public String getVivienda() {
+		return vivienda;
+	}
+
+	public void setVivienda(String vivienda) {
+		this.vivienda = vivienda;
 	}
 	
 	

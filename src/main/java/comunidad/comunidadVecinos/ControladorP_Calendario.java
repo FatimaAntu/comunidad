@@ -3,7 +3,8 @@ package comunidad.comunidadVecinos;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.YearMonth;
-
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
@@ -44,6 +45,11 @@ public class ControladorP_Calendario {
     }
 
     public void mostrarCalendario(YearMonth mes) {
+    	 Locale.setDefault(new Locale("es", "ES"));
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy", new Locale("es", "ES"));
+         
+         // Actualiza el nombre del mes en el Label
+         labelMes.setText(mes.format(formatter));
         gridCalendario.getChildren().clear();  // Limpiar el calendario antes de volver a mostrarlo
 
         // Días de la semana
@@ -51,7 +57,7 @@ public class ControladorP_Calendario {
         for (int i = 0; i < diasSemana.length; i++) {
             Label labelDia = new Label(diasSemana[i]);
             labelDia.setStyle("-fx-font-weight: bold; -fx-alignment: center; -fx-pref-width: 100;");
-            gridCalendario.add(labelDia, i, 0);  // Primera fila para los días de la semana
+            gridCalendario.add(labelDia, i, 0);  //primera fila para los días de la semana
         }
 
         // Días del mes
@@ -62,30 +68,30 @@ public class ControladorP_Calendario {
         for (int i = 0; i < diasEnMes; i++) {
             //LocalDate dia = mes.atDay(i + 1);
 
-            // Cada día en un StackPane (para facilitar la adición de actividades en el futuro)
+            // Cada día en un StackPane
             StackPane diaPane = new StackPane(new Label(String.valueOf(i + 1)));
             diaPane.setStyle("-fx-border-color: #CCCCCC; -fx-padding: 5; -fx-alignment: center;");
 
             // Colocando el día en el calendario
-            int col = (i + diaInicio) % 7;  // Columna en la que va el día
-            int fila = (i + diaInicio) / 7 + 1;  // Fila en la que va el día
+            int col = (i + diaInicio) % 7;  
+            int fila = (i + diaInicio) / 7 + 1; 
             gridCalendario.add(diaPane, col, fila);
         }
     }
 
     private void configurarRestricciones() {
-        // Ajusta las columnas para que todas tengan el mismo tamaño
+        //ajuste de las columnas 
         for (int i = 0; i < 7; i++) {
             ColumnConstraints columnConstraints = new ColumnConstraints();
-            columnConstraints.setPercentWidth(100.0 / 7); // Dividir el espacio equitativamente
+            columnConstraints.setPercentWidth(100.0 / 7); 
             gridCalendario.getColumnConstraints().add(columnConstraints);
         }
 
-        // Ajusta las filas para que todas tengan el mismo tamaño
-        int numFilas = 6;  // El calendario tiene un máximo de 6 filas (aunque no todos los meses las usen)
+       //ajuste de las filas
+        int numFilas = 6; 
         for (int i = 0; i < numFilas; i++) {
             RowConstraints rowConstraints = new RowConstraints();
-            rowConstraints.setVgrow(javafx.scene.layout.Priority.ALWAYS);  // Ajustar altura
+            rowConstraints.setVgrow(javafx.scene.layout.Priority.ALWAYS); 
             gridCalendario.getRowConstraints().add(rowConstraints);
         }
     }

@@ -33,6 +33,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      
       <TextField fx:id="txtUsuario" layoutX="96.0" layoutY="242.0" prefHeight="54.0" prefWidth="298.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-border-width: 2; -fx-border-radius: 100; -fx-background-radius: 100;">
          <font>
             <Font size="18.0" />

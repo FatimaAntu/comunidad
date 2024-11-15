@@ -11,6 +11,7 @@ import modelo_DAO.AgregarSugerencia;
 import modelo_DAO.Alertas;
 import modelo_DAO.InicioSesion;
 import modelo_DTO.Sugerencias;
+import modelo_DTO.Usuario_global;
 
 public class ControladorP_CrearSugerencia {
 
@@ -21,69 +22,37 @@ public class ControladorP_CrearSugerencia {
 	private Button botonGuardar;
 
 	@FXML
-	private TextField txtNombre;
-
-	@FXML
-	private TextField txtApellido;
-
-	@FXML
 	private TextField txtTexto;
 
 	@FXML
     private Label labelNombre;
 	
-	private void actualizarLabelNombre() {
-		//InicioSesion is = new InicioSesion();
-        //String nombre = is.extraerN();
-        //labelNombre.setText(nombre);
-	}
-	
 	@FXML
 	public void initialize() {
-		actualizarLabelNombre();
+        labelNombre.setText(Usuario_global.getInstance().getNombreusuarioglobal());
 	}
 	@FXML
 	private void agregarSugerencia() throws IOException {
-		String nombre = txtNombre.getText().trim();
-		String apellido = txtApellido.getText().trim();
-		String texto = txtTexto.getText().trim();
+		String texto = txtTexto.getText();
 
-		if (nombre.isEmpty() || apellido.isEmpty() || texto.isEmpty()) {
+		if (texto.isEmpty()) {
 			new Alertas().alertaWarning("Todos los campos son obligatorios.");
 			return;
 		}
 
-		Sugerencias nuevaSugerencia = new Sugerencias(nombre, apellido, texto);
+		Sugerencias nuevaSugerencia = new Sugerencias(texto);
 		AgregarSugerencia agregarSugerenciaDAO = new AgregarSugerencia();
 		agregarSugerenciaDAO.agregarSugerencia(nuevaSugerencia);
 
-		Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-		alerta.setHeaderText(null);
-		alerta.setContentText("Sugerencia guardada con éxito.");
-		alerta.showAndWait();
-
-		txtNombre.clear();
-		txtApellido.clear();
+		new Alertas().alertaConfirmation("Sugerencia guardada con éxito");
 		txtTexto.clear();
-
-		// Cerrar la ventana actual
-		Stage stage = (Stage) botonGuardar.getScene().getWindow();
-		stage.close();
-
-		// Regresar a la vista anterior y pasar la sugerencia para que se muestre en la tabla
-		cargarListaSugerencias(nuevaSugerencia);
+		cargarPanterior();
 	}
+	
 
 	@FXML
 	private void borrar() {
-		Stage stage = (Stage) botonBorrar.getScene().getWindow();
-		stage.close();
-	}
-
-	@FXML
-	private void cargarListaSugerencias(Sugerencias nuevaSugerencia) throws IOException {
-
-		App.setRoot("P_ListaSugerencias");
+		txtTexto.clear();
 	}
 
 	@FXML

@@ -11,12 +11,16 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.TableColumn;
 import modelo_DAO.AgregarSugerencia;
 import modelo_DAO.Alertas;
 import modelo_DAO.InicioSesion;
 import modelo_DAO.ListarSugerencias;
+import modelo_DAO.ListarUsuarios;
 import modelo_DTO.Sugerencias;
+import modelo_DTO.Usuario_global;
+import modelo_DTO.Usuarios;
 
 public class ControladorP_ListaSugerencias {
 
@@ -36,36 +40,35 @@ public class ControladorP_ListaSugerencias {
 
 	private ObservableList<Sugerencias> listaSugerencias;
 
-	
-	private void actualizarLabelNombre() {
-		//InicioSesion is = new InicioSesion();
-        //String nombre = is.extraerN();
-        //labelNombre.setText(nombre);
-	}
-
 	@FXML
-	public void agregarSugerenciaATabla(Sugerencias nuevaSugerencia) {
+	public void agregarSugerenciaTabla(Sugerencias nuevaSugerencia) {
 		// Agregar la sugerencia a la tabla 
 		tablaSugerencias.getItems().add(nuevaSugerencia);
 	}
 
-	@FXML
-
-	private void leerSugerencias() {
-		ListarSugerencias ls = new ListarSugerencias();
-		List<Sugerencias> sugerenciasBBDD = ls.leerSugerencia();
-
-		listaSugerencias.addAll(sugerenciasBBDD);
-
-	}
 
 	public void initialize() {
 		listaSugerencias = FXCollections.observableArrayList();
 		tablaSugerencias.setItems(listaSugerencias);
-		actualizarLabelNombre();
+		colTexto.setCellValueFactory(new PropertyValueFactory<>("texto"));
 
-		leerSugerencias();
+	   labelNombre.setText(Usuario_global.getInstance().getNombreusuarioglobal());
+	   leerSugerencias();
 	}
+	@FXML
+	private void leerSugerencias() {
+	    ListarSugerencias ls = new ListarSugerencias();
+	    List<Sugerencias> sugerenciasBBDD = ls.leerSugerencia();
+
+	    if (sugerenciasBBDD != null) {
+	        listaSugerencias.addAll(sugerenciasBBDD);
+	    } else {
+	        System.out.println("No se encontraron sugerencias.");
+	    }
+	}
+
+
+	
 
 	@FXML
 	private void eliminarSugerencias() {

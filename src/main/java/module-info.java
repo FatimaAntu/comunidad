@@ -5,6 +5,7 @@ module comunidad.comunidadVecinos {
 	requires javafx.graphics;
 	requires java.desktop;
 	requires javafx.base;
+	requires org.controlsfx.controls;
 
 	opens comunidad.comunidadVecinos to javafx.fxml;
 

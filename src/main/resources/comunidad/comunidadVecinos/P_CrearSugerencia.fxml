@@ -18,31 +18,16 @@
          </image>
          
       </ImageView>
+      <Button layoutX="66.0" layoutY="559.0" mnemonicParsing="false" onAction="#agregarSugerencia" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Guardar" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="286.79999999999995" />
+     
+      <Button layoutX="280.0" layoutY="559.0" mnemonicParsing="false" onAction="#borrar" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="71.20000000000005" />
       
-      <Button layoutX="66.0" layoutY="559.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Guardar" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="286.79999999999995" />
-      <Button layoutX="280.0" layoutY="559.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="71.20000000000005" />
-      
-      <!-- Nombre -->
-      <Label layoutX="55.0" layoutY="187.0" prefHeight="30.0" prefWidth="62.0" text="Nombre " AnchorPane.leftAnchor="55.0">
+      <Label layoutX="240.0" layoutY="184.0" prefHeight="29.0" prefWidth="78.0" text="Sugerencia" AnchorPane.leftAnchor="240.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNombre" layoutX="51.0" layoutY="224.0" prefHeight="37.0" prefWidth="297.0" style="-fx-background-color: FCFFF4; -fx-background-radius: 6; -fx-border-color: D26192; -fx-border-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="50.599999999999966" />
-      
-      <Label layoutX="50.0" layoutY="276.0" prefHeight="30.0" prefWidth="78.0" text="Apellido" AnchorPane.leftAnchor="50.0">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtApellido" layoutX="48.0" layoutY="315.0" prefHeight="37.0" prefWidth="297.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="53.599999999999966" />
-      
-      <Label layoutX="50.0" layoutY="388.0" prefHeight="29.0" prefWidth="78.0" text="Sugerencia" AnchorPane.leftAnchor="50.0">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtTexto" layoutX="48.0" layoutY="423.0" prefHeight="112.0" prefWidth="450.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="42.0" />
+      <TextField fx:id="txtTexto" layoutX="45.0" layoutY="214.0" prefHeight="316.0" prefWidth="450.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-width: 2;" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" />
       
       <ImageView fitHeight="100.0" fitWidth="420.0" layoutX="87.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
          <image>

@@ -21,12 +21,10 @@ public class ControladorP_Verano {
     private TableView<Actividades> tablaActividades710;
     @FXML
     private TableColumn<Actividades, Void> actividades36, actividades710, columnaHoraInicio36, columnaHoraFin36, columnaFecha36, columnaHoraInicio710, columnaHoraFin710, columnaFecha710, columnaPlazas36, columnaPlazas710;
-   
-    @FXML
-    private Label labelNombre;
-    
     private ObservableList<Actividades> listaActividades36, listaActividades710;
     
+    @FXML
+    private Label labelNombre;
     @FXML
     private Label labelContador;
 

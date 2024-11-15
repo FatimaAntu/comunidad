@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import modelo_DAO.Alertas;
 import modelo_DAO.ListarActividades;
 import modelo_DTO.Actividades;
 import modelo_DTO.Usuario_global;
@@ -82,6 +83,72 @@ public class ControladorP_Invierno {
         ListarActividades la = new ListarActividades();
         return la.leerActividades(2, edad);
     }
+
+    public void ReservarPlaza () {
+		Alertas a = new Alertas();
+        Actividades actividadSeleccionada36 = tablaActividades36.getSelectionModel().getSelectedItem();
+        if (actividadSeleccionada36 == null) {
+        	 Actividades actividadSeleccionada710 = tablaActividades710.getSelectionModel().getSelectedItem();
+             int idHorario710 = actividadSeleccionada710.getIdHorario();
+     		int plazas710 = contador;
+     		String vivienda710 = Usuario_global.getInstance().getVivienda();
+     		
+     		modelo_DAO.ReservarPlaza rp710 = new modelo_DAO.ReservarPlaza();
+     		if (contador <= 0 || contador > Usuario_global.getInstance().getNumHijos()) {
+     			a.alertaError("No puedes reservar 0 plazas");
+     		} else {
+     			if (actividadSeleccionada710.getPlazas() == 0) {
+     				a.alertaError("No queda ninguna plaza disponibles para la actividad "+ actividadSeleccionada710.getNombreActividad() + " el día " + actividadSeleccionada710.getFecha());
+     			} else if (actividadSeleccionada710.getPlazas() < contador) {
+     				a.alertaError("No quedan suficientes plazas disponibles para la actividad "+ actividadSeleccionada710.getNombreActividad() + " el día " + actividadSeleccionada710.getFecha());
+     			} else {
+     				rp710.ReservarPlazas(idHorario710, plazas710, vivienda710);
+     				if (plazas710 == 1) {
+     					a.alertaConfirmation("Has reservado " + plazas710 + " plaza correctamente!");
+     				}else {
+     				a.alertaConfirmation("Has reservado " + plazas710 + " plazas correctamente!");
+     				}
+     				try {
+     					App.setRoot("P_Verano");
+     					App.setRoot("P_Invierno");
+     				} catch (IOException e) {
+     					// TODO Auto-generated catch block
+     					e.printStackTrace();
+     				}
+     			}
+     		}
+        }else {
+        	int idHorario36 = actividadSeleccionada36.getIdHorario();
+    		int plazas36 = contador;
+    		String vivienda36 = Usuario_global.getInstance().getVivienda();
+    		
+    		modelo_DAO.ReservarPlaza rp36 = new modelo_DAO.ReservarPlaza();
+    		if (contador <= 0 || contador > Usuario_global.getInstance().getNumHijos()) {
+    			a.alertaError("No puedes reservar 0 plazas");
+    		} else {
+    			if (actividadSeleccionada36.getPlazas() == 0) {
+    				a.alertaError("No queda ninguna plaza disponibles para la actividad "+ actividadSeleccionada36.getNombreActividad() + " el día " + actividadSeleccionada36.getFecha());
+    			} else if (actividadSeleccionada36.getPlazas() < contador) {
+    				a.alertaError("No quedan suficientes plazas disponibles para la actividad "+ actividadSeleccionada36.getNombreActividad() + " el día " + actividadSeleccionada36.getFecha());
+    			} else {
+    				rp36.ReservarPlazas(idHorario36, plazas36, vivienda36);
+    				if (plazas36 == 1) {
+    					a.alertaConfirmation("Has reservado " + plazas36 + " plaza correctamente!");
+    				}else {
+    				a.alertaConfirmation("Has reservado " + plazas36 + " plazas correctamente!");
+    				}
+    				try {
+    					App.setRoot("P_Verano");
+    					App.setRoot("P_Invierno");
+    				} catch (IOException e) {
+    					// TODO Auto-generated catch block
+    					e.printStackTrace();
+    				}
+    			}
+    		}
+        }
+    }
+
     
     @FXML
     private void cerrarSesion() throws IOException {
