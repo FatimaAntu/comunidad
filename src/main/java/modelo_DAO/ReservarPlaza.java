@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class ReservarPlaza {
 	public void ReservarPlazas(int actividad, int plazas, String vivienda) {
@@ -38,4 +40,20 @@ public class ReservarPlaza {
 		e.printStackTrace();
 	}
 	}
+	
+	public void reservarCumpleanos(LocalDate fecha, LocalTime hora, int numero_asistentes, String vivienda) {
+	    String sql = "INSERT INTO comunidad.reservas (fecha, hora, numero_asistentes) VALUES (?, ?, ?)";
+
+	    try (Connection conn = Utilidades.Util.dameConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
+	        ps.setDate(1, java.sql.Date.valueOf(fecha));
+	        ps.setTime(2, java.sql.Time.valueOf(hora));
+	        ps.setInt(3, numero_asistentes);
+
+	        ps.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        throw new RuntimeException("Error al realizar la reserva", e);
+	    }
+	}
+
 }
