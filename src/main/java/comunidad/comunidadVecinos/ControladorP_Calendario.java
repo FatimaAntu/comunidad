@@ -221,6 +221,7 @@ public class ControladorP_Calendario {
 		App.setRoot("P_ListaSugerencias");
 	}
 	
+	
 	@FXML
 	private void cargarActividades() throws IOException {
 		App.setRoot("P_Actividades");

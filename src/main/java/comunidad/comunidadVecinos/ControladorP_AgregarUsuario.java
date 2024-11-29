@@ -169,8 +169,7 @@ public class ControladorP_AgregarUsuario {
         String regex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{8,}$";
         return Pattern.matches(regex, contrasena);
     }
-
-
+    
     private boolean esTextoValido(String texto) {
         // Expresión regular para verificar solo letras (incluyendo espacios y acentos)
         String regex = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$";
