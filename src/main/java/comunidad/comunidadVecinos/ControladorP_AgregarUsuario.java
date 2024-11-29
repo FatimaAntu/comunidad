@@ -170,11 +170,6 @@ public class ControladorP_AgregarUsuario {
         return Pattern.matches(regex, contrasena);
     }
 
-    private boolean validarVivienda(String vivienda) {
-        // Expresión regular para el formato "B___"
-        String regex = "^B\\d\\d[A-E]$";
-        return vivienda != null && vivienda.matches(regex);
-    }
 
     private boolean esTextoValido(String texto) {
         // Expresión regular para verificar solo letras (incluyendo espacios y acentos)

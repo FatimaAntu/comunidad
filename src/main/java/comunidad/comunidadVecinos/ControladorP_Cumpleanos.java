@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import modelo_DAO.InicioSesion;
 import modelo_DAO.ReservarPlaza;
 import modelo_DTO.Usuario_global;
 

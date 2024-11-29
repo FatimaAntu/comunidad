@@ -24,13 +24,10 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
-import modelo_DAO.AgregarUsuarios;
 import modelo_DAO.Alertas;
 import modelo_DAO.ListarActividadesCalendario;
-import modelo_DAO.ReservarPlaza;
 import modelo_DTO.Actividades;
 import modelo_DTO.Usuario_global;
-import modelo_DTO.Usuarios;
 
 public class ControladorP_Calendario {
 	
