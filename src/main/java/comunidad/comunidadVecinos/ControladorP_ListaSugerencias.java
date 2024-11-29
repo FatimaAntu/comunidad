@@ -9,18 +9,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.TableColumn;
-import modelo_DAO.AgregarSugerencia;
 import modelo_DAO.Alertas;
-import modelo_DAO.InicioSesion;
 import modelo_DAO.ListarSugerencias;
-import modelo_DAO.ListarUsuarios;
 import modelo_DTO.Sugerencias;
 import modelo_DTO.Usuario_global;
-import modelo_DTO.Usuarios;
 
 public class ControladorP_ListaSugerencias {
 
@@ -42,59 +39,100 @@ public class ControladorP_ListaSugerencias {
 
 	@FXML
 	public void agregarSugerenciaTabla(Sugerencias nuevaSugerencia) {
-		// Agregar la sugerencia a la tabla 
+		// Agregar la sugerencia a la tabla
 		tablaSugerencias.getItems().add(nuevaSugerencia);
 	}
 
-
 	public void initialize() {
+
 		listaSugerencias = FXCollections.observableArrayList();
 		tablaSugerencias.setItems(listaSugerencias);
 		colTexto.setCellValueFactory(new PropertyValueFactory<>("texto"));
 
-	   labelNombre.setText(Usuario_global.getInstance().getNombreusuarioglobal());
-	   leerSugerencias();
+		// Cambiar el color de las filas denunciadas
+		tablaSugerencias.setRowFactory(tv -> new TableRow<Sugerencias>() {
+			@Override
+			protected void updateItem(Sugerencias sugerencia, boolean empty) {
+				super.updateItem(sugerencia, empty);
+
+				if (sugerencia != null && sugerencia.isDenunciada()) {
+					setStyle("-fx-background-color: #ffcccc;"); // Rojo claro para denunciadas
+				} else {
+					setStyle(""); // Restaurar estilo por defecto
+				}
+			}
+		});
+		// Mostrar el nombre del usuario en la etiqueta
+		labelNombre.setText(Usuario_global.getInstance().getNombreusuarioglobal());
+		//la tabla está configurada, cargar las sugerencias desde la bbdd
+		leerSugerencias();
+
 	}
-	@FXML
-	private void leerSugerencias() {
-	    ListarSugerencias ls = new ListarSugerencias();
-	    List<Sugerencias> sugerenciasBBDD = ls.leerSugerencia();
 
-	    if (sugerenciasBBDD != null) {
-	        listaSugerencias.addAll(sugerenciasBBDD);
-	    } else {
-	        System.out.println("No se encontraron sugerencias.");
-	    }
+	public void leerSugerencias() {
+		ListarSugerencias ls = new ListarSugerencias();
+		List<Sugerencias> sugerenciasBBDD = ls.leerSugerencia();
+
+		if (sugerenciasBBDD != null && !sugerenciasBBDD.isEmpty()) {
+			listaSugerencias.clear(); // Limpiar la lista antes de cargar nuevas sugerencias
+			listaSugerencias.addAll(sugerenciasBBDD);
+			tablaSugerencias.refresh(); // Refrescar la tabla
+		}
+
+		// Aplicar un RowFactory para manejar los colores basados en el estado denunciada
+		tablaSugerencias.setRowFactory(tv -> new TableRow<Sugerencias>() {
+			@Override
+			protected void updateItem(Sugerencias sugerencia, boolean empty) {
+				super.updateItem(sugerencia, empty);
+
+				if (empty || sugerencia == null) {
+					setStyle(""); // Sin estilo para filas vacías
+				} else if (sugerencia.isDenunciada()) { // Comprueba si está denunciada
+					setStyle("-fx-background-color: lightcoral;"); // Color para denunciadas
+				} else {
+					setStyle(""); // Restablecer estilo para las demás
+				}
+			}
+		});
 	}
 
-
-	
-
 	@FXML
-	private void eliminarSugerencias() {
+	private void cargarDenunciarSugerencia() {
 		Sugerencias sugerenciaSeleccionada = tablaSugerencias.getSelectionModel().getSelectedItem();
 
 		if (sugerenciaSeleccionada != null) {
-
 			Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
 			confirmacion.setHeaderText(null);
-			confirmacion.setTitle("Confirmación");
-			confirmacion.setContentText("¿Estás seguro de que deseas eliminar la sugerencia seleccionada?");
+			confirmacion.setTitle("Denunciar Sugerencia");
+			confirmacion.setContentText("¿Estás seguro de que deseas denunciar esta sugerencia?");
 			Optional<ButtonType> resultado = confirmacion.showAndWait();
 
 			if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+				// Denunciar la sugerencia en la base de datos
+				ListarSugerencias dao = new ListarSugerencias();
+				boolean exito = dao.denunciarSugerencia(sugerenciaSeleccionada.getIdSugerencia());
 
-				listaSugerencias.remove(sugerenciaSeleccionada);
-				tablaSugerencias.getSelectionModel().clearSelection();
+				if (exito) {
+					Alert exitoAlerta = new Alert(Alert.AlertType.INFORMATION);
+					exitoAlerta.setHeaderText(null);
+					exitoAlerta.setTitle("Denuncia Enviada");
+					exitoAlerta.setContentText("La sugerencia ha sido denunciada correctamente.");
+					exitoAlerta.showAndWait();
 
-				AgregarSugerencia eliminar = new AgregarSugerencia();
-				eliminar.eliminarSugerencia(sugerenciaSeleccionada);
-			} else {
-				tablaSugerencias.getSelectionModel().clearSelection();
+					// Actualizar el estado de denuncia en la lista observable
+					sugerenciaSeleccionada.setDenunciada(true);
+					tablaSugerencias.refresh();
+				} else {
+					Alert errorAlerta = new Alert(Alert.AlertType.ERROR);
+					errorAlerta.setHeaderText(null);
+					errorAlerta.setTitle("Error");
+					errorAlerta.setContentText("No se pudo denunciar la sugerencia. Inténtalo de nuevo.");
+					errorAlerta.showAndWait();
+				}
 			}
 		} else {
 			Alertas a = new Alertas();
-			a.alertaWarning("Por favor, selecciona una sugerencia para eliminar");
+			a.alertaWarning("Por favor, selecciona una sugerencia para denunciar.");
 		}
 	}
 
@@ -122,5 +160,4 @@ public class ControladorP_ListaSugerencias {
 	private void cargarCalendario() throws IOException {
 		App.setRoot("P_Calendario");
 	}
-
 }

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -15,40 +16,40 @@ import modelo_DAO.ReservarPlaza;
 import modelo_DTO.Usuario_global;
 
 public class ControladorP_Cumpleanos {
-	@FXML
+    @FXML
     private Label labelNombre;
-	@FXML
-	private TextField txtFecha;
-	@FXML
-	private TextField txtHora;
-	@FXML
-	private TextField txtNumeroAsistentes;
-	
-	private ReservarPlaza modeloReservar = new ReservarPlaza();
-	
-	@FXML
-	public void initialize() {	
-    labelNombre.setText(Usuario_global.getInstance().getNombreusuarioglobal());
-	}
-	@FXML
-	private void cerrarSesion() throws IOException {
-		App.setRoot("P_Inicio");
-	}
-	
-	@FXML
-	private void cargarPanterior() throws IOException {
-		App.setRoot("P_Actividades");
-	}
-	
-	@FXML
-	public void borrarCampos() {
-		txtFecha.clear();
-		txtHora.clear();
-		txtNumeroAsistentes.clear();
-		
-	}
-	
-	@FXML
+    @FXML
+    private TextField txtFecha;
+    @FXML
+    private TextField txtHora;
+    @FXML
+    private TextField txtNumeroAsistentes;
+
+    private ReservarPlaza modeloReservar = new ReservarPlaza();
+
+    @FXML
+    public void initialize() {
+        labelNombre.setText(Usuario_global.getInstance().getNombreusuarioglobal());
+    }
+
+    @FXML
+    private void cerrarSesion() throws IOException {
+        App.setRoot("P_Inicio");
+    }
+
+    @FXML
+    private void cargarPanterior() throws IOException {
+        App.setRoot("P_Actividades");
+    }
+
+    @FXML
+    public void borrarCampos() {
+        txtFecha.clear();
+        txtHora.clear();
+        txtNumeroAsistentes.clear();
+    }
+
+    @FXML
     private void reserva(ActionEvent event) {
         // Validar los campos
         String fechaStr = txtFecha.getText();
@@ -65,18 +66,25 @@ public class ControladorP_Cumpleanos {
             LocalTime hora = LocalTime.parse(horaStr, DateTimeFormatter.ISO_TIME);
             int asistentes = Integer.parseInt(asistentesStr);
 
+            // Validación fecha, debe ser más reciente que la fecha actual
+            if (fecha.isBefore(LocalDate.now())) {
+                mostrarAlerta("Error", "La fecha no puede ser más antigua que la actual.", Alert.AlertType.ERROR);
+                return;
+            }
+
+            // Validación número asistentes, debe ser mayor que 0
             if (asistentes <= 0) {
                 mostrarAlerta("Error", "El número de asistentes debe ser mayor que 0.", Alert.AlertType.ERROR);
                 return;
             }
 
             // Llamar al modelo DAO para almacenar la reserva
-            modeloReservar.reservarCumpleanos(fecha, hora, asistentes, "ViviendaPrueba");
+            modeloReservar.reservarCumpleanos(fecha, hora, asistentes, Usuario_global.getInstance().getVivienda());
 
             mostrarAlerta("Éxito", "Reserva realizada correctamente.", Alert.AlertType.INFORMATION);
 
         } catch (DateTimeParseException e) {
-            mostrarAlerta("Error", "La fecha u hora tienen un formato incorrecto.", Alert.AlertType.ERROR);
+            mostrarAlerta("Error", "La fecha u hora tienen un formato incorrecto. Usa el formato YYYY-MM-DD para la fecha y HH:mm para la hora.", Alert.AlertType.ERROR);
         } catch (NumberFormatException e) {
             mostrarAlerta("Error", "El número de asistentes debe ser un número válido.", Alert.AlertType.ERROR);
         } catch (Exception e) {
@@ -93,4 +101,3 @@ public class ControladorP_Cumpleanos {
         alerta.showAndWait();
     }
 }
-	

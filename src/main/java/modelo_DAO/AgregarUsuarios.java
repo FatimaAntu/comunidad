@@ -7,7 +7,7 @@ import modelo_DTO.Usuarios;
 
 public class AgregarUsuarios {
 	public void AgregarUsuario(Usuarios user) {
-		String sql = "INSERT INTO comunidad.usuarios (Nombre, Apellidos, Vivienda, NumHijos, NombreUsuario, Contrasena) VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO comunidad.usuarios (Nombre, Apellidos, Vivienda, NumHijos, NombreUsuario, Contrasena, id_pregunta_seguridad, respuesta_seguridad) VALUES (?, ?, ?, ?, ?, ?, 1, 'toby')";
 
 		try (Connection conn = Utilidades.Util.dameConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
 

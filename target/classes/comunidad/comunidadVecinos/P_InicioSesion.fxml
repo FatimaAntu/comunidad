@@ -14,17 +14,17 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_InicioSesion">
    <children>
       <Region prefHeight="66.0" prefWidth="499.0" style="-fx-background-color: D26192;" />
-      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarPinicio" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarPinicio" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/FLECHA.png" />
          </image>
       </ImageView>
-      <Button layoutX="136.0" layoutY="470.0" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="38.0" prefWidth="110.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Entrar">
+      <Button layoutX="138.0" layoutY="473.0" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="38.0" prefWidth="110.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white; -fx-border-color: ffe97f; -fx-border-width: 0 2 0 0;" text="Entrar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="250.0" layoutY="470.0" mnemonicParsing="false" onAction="#borrarCampos" prefHeight="38.0" prefWidth="110.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar">
+      <Button layoutX="247.0" layoutY="473.0" mnemonicParsing="false" onAction="#borrarCampos" prefHeight="38.0" prefWidth="110.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white; -fx-border-color: ffe97f; -fx-border-width: 0 0 0 2;" text="Borrar">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
@@ -54,7 +54,7 @@
             <Image url="@../../img/TITULO_InicioSesion.png" />
          </image>
       </ImageView>
-        <Hyperlink fx:id="olvideContrasenaLink" layoutX="165.0" layoutY="420.0" onAction="#abrirRecuperacionContrasena" prefHeight="38.0" prefWidth="190.0" text="¿Olvidaste tu contraseña?" textFill="#3e18c9">
+        <Hyperlink fx:id="olvideContrasenaLink" layoutX="159.0" layoutY="420.0" onAction="#abrirRecuperacionContrasena" prefHeight="38.0" prefWidth="177.0" text="¿Olvidaste tu contraseña?" textFill="#3e18c9">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Hyperlink>

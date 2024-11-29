@@ -16,7 +16,7 @@
       <Region prefHeight="66.0" prefWidth="499.0" style="-fx-background-color: D26192;" />
 
       <!-- Flecha de regreso -->
-      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarPanterior" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarPanterior" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/FLECHA.png" />
          </image>
@@ -42,7 +42,7 @@
          </font>
       </Button>
 
-      <Label fx:id="preguntaLabel" layoutX="121.0" layoutY="262.0" prefHeight="30.0" prefWidth="307.0" text="Pregunta de seguridad aparecerá aquí." wrapText="true" />
+      <Label fx:id="preguntaLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="262.0" prefHeight="30.0" prefWidth="298.0" textAlignment="CENTER" wrapText="true" />
       
       <TextField fx:id="respuestaTextField" layoutX="102.0" layoutY="308.0" prefHeight="54.0" prefWidth="298.0" promptText="Ingrese su respuesta" style="-fx-background-color: FCFFF4; -fx-border-color: D26192; -fx-border-width: 2; -fx-border-radius: 100; -fx-background-radius: 100;">
          <font>

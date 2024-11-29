@@ -20,10 +20,5 @@
          </image>
       </ImageView>
       <Region layoutY="614.0" prefHeight="65.0" prefWidth="905.0" style="-fx-background-color: D26192;" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="628.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../img/RRSS.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

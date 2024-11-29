@@ -1,44 +1,119 @@
 package modelo_DAO;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import modelo_DTO.Sugerencias;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo_DTO.Sugerencias;
-
 public class ListarSugerencias {
 
-    // Cambié el tipo de retorno a List<Sugerencias> para mayor flexibilidad
+    // Método para obtener todas las sugerencias (incluyendo las denunciadas)
     public List<Sugerencias> leerSugerencia() {
         String sql = "SELECT * FROM comunidad.sugerencias";
-        List<Sugerencias> sugerencias = new ArrayList<>();  
-        try (Connection conn = Utilidades.Util.dameConexion();  // Asumiendo que la conexión se obtiene de esta clase
+        List<Sugerencias> sugerencias = new ArrayList<>();
+
+        try (Connection conn = Utilidades.Util.dameConexion();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
-            
-            // Iteramos a través de los resultados de la consulta
+
             while (rs.next()) {
-                // Obtener los valores de cada columna
-                int IdSugerencia = rs.getInt("IdSugerencia");
-                String Texto = rs.getString("Texto");
-                
-                // Crear un objeto Sugerencias con los datos obtenidos
-                Sugerencias sugerencia = new Sugerencias(IdSugerencia, Texto);
-                
-                // Añadir la sugerencia a la lista
+                int idSugerencia = rs.getInt("IdSugerencia");
+                String texto = rs.getString("Texto");
+                boolean denunciada = rs.getBoolean("denunciada"); // Obtener el estado denunciada
+
+                // Validar si el texto es nulo
+                if (texto == null) {
+                    texto = "Texto vacío"; // Asigna un valor por defecto si está vacío
+                }
+
+                Sugerencias sugerencia = new Sugerencias(idSugerencia, texto, denunciada);
                 sugerencias.add(sugerencia);
             }
 
         } catch (SQLException e) {
-            // Puedes agregar más detalles de la excepción si lo deseas
-            System.err.println("Error al obtener las sugerencias: " + e.getMessage());
             e.printStackTrace();
         }
-        
-        return sugerencias;  // Devolver la lista de sugerencias
-    }
-}
 
+        return sugerencias;
+    }
+
+    // Método para obtener solo las sugerencias denunciadas
+    public List<Sugerencias> leerSugerenciaDenunciada() {
+        String sql = "SELECT * FROM comunidad.sugerencias WHERE denunciada = TRUE";
+        List<Sugerencias> sugerenciasDenunciadas = new ArrayList<>();
+
+        try (Connection conn = Utilidades.Util.dameConexion();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+
+            while (rs.next()) {
+                int idSugerencia = rs.getInt("IdSugerencia");
+                String texto = rs.getString("Texto");
+
+                if (texto == null) {
+                    texto = "Texto vacío"; // Asigna un valor por defecto si está vacío
+                }
+
+                Sugerencias sugerencia = new Sugerencias(idSugerencia, texto);
+                sugerenciasDenunciadas.add(sugerencia);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error al obtener las sugerencias denunciadas: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return sugerenciasDenunciadas;
+    }
+
+    // Método para denunciar una sugerencia
+    public boolean denunciarSugerencia(int idSugerencia) {
+        String sql = "UPDATE comunidad.sugerencias SET Denunciada = TRUE WHERE IdSugerencia = ?";
+
+        try (Connection conn = Utilidades.Util.dameConexion(); PreparedStatement pst = conn.prepareStatement(sql)) {
+            pst.setInt(1, idSugerencia);
+            int filasAfectadas = pst.executeUpdate();
+
+            return filasAfectadas > 0; // Devuelve true si al menos una fila fue actualizada
+
+        } catch (SQLException e) {
+            System.err.println("Error al denunciar la sugerencia: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return false; // En caso de error, devuelve false
+    }
+
+    // Método para eliminar una sugerencia (cuando la denuncia es aceptada)
+    public boolean eliminarSugerencia(int idSugerencia) {
+        String sql = "DELETE FROM comunidad.sugerencias WHERE IdSugerencia = ?";
+
+        try (Connection conn = Utilidades.Util.dameConexion(); PreparedStatement pst = conn.prepareStatement(sql)) {
+            pst.setInt(1, idSugerencia);
+            int filasAfectadas = pst.executeUpdate();
+
+            return filasAfectadas > 0; // Devuelve true si al menos una fila fue eliminada
+
+        } catch (SQLException e) {
+            System.err.println("Error al eliminar la sugerencia: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return false; // En caso de error, devuelve false
+    }
+
+ // Método para marcar una sugerencia como denunciada
+ 	public boolean cargarDenunciarSugerencia(int idSugerencia) {
+ 		String sql = "UPDATE comunidad.sugerencias SET Denunciada = TRUE WHERE IdSugerencia = ?";
+ 		try (Connection conn = Utilidades.Util.dameConexion(); PreparedStatement ps = conn.prepareStatement(sql)) {
+
+ 			ps.setInt(1, idSugerencia);
+ 			int rowsUpdated = ps.executeUpdate();
+ 			return rowsUpdated > 0; // Devuelve true si se actualizó correctamente
+
+ 		} catch (SQLException e) {
+ 			System.err.println("Error al denunciar la sugerencia: " + e.getMessage());
+ 			e.printStackTrace();
+ 			return false;
+ 		}
+ 	}
+
+}

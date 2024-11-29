@@ -6,18 +6,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_Actividades">
    <children>
       <Region prefHeight="66.0" prefWidth="499.0" style="-fx-background-color: D26192;" />
-      <ImageView fitHeight="37.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarCalendario" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../img/FLECHA.png" />
-         </image>
-         
-      </ImageView>
       <Button layoutX="120.0" layoutY="327.0" mnemonicParsing="false" onAction="#cargarInvierno" prefHeight="74.0" prefWidth="266.0" style="-fx-background-radius: 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Invierno" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="113.0">
          <font>
             <Font size="18.0" />
@@ -35,26 +30,36 @@
         <Font size="18.0" />
     </font>
 </Button>
-      <ImageView fitHeight="103.0" fitWidth="352.0" layoutX="74.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="117.0" fitWidth="459.0" layoutX="20.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/TITULO_Actividades.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="44.0" layoutX="441.0" layoutY="15.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="447.0" layoutY="11.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/LOGOUT.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="59.0" layoutX="99.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../img/AVATAR.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="labelNombre" layoutX="150.0" layoutY="19.0" text="Username" textFill="#ffe97f">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
       <Accordion layoutX="53.0" layoutY="40.0" />
+      <HBox alignment="CENTER" layoutX="63.0" layoutY="-3.0" prefHeight="74.0" prefWidth="374.0">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/AVATAR.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelNombre" style="-fx-label-padding: 5;" text="Username" textFill="#ffe97f">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="17.0" layoutY="17.0" onMouseClicked="#cargarCalendario" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/FLECHA.png" />
+         </image>
+         
+                  </ImageView>
    </children>
 </AnchorPane>

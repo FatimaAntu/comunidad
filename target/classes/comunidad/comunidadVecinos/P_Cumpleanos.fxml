@@ -6,20 +6,21 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_Cumpleanos">
    <children>
       <Region prefHeight="66.0" prefWidth="499.0" style="-fx-background-color: D26192;" />
-      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarPanterior" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarPanterior" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/FLECHA.png" />
          </image>
          
       </ImageView>
-      <Button layoutX="100.0" layoutY="489.0" mnemonicParsing="false" onAction="#reserva" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Reservar" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="251.0" />
-      <Button layoutX="253.0" layoutY="489.0" mnemonicParsing="false" onAction="#borrarCampos" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white;" text="Borrar" AnchorPane.leftAnchor="253.0" AnchorPane.rightAnchor="98.0" />
+      <Button layoutX="102.0" layoutY="490.0" mnemonicParsing="false" onAction="#reserva" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 100 0 0 100; -fx-background-color: D26192; -fx-text-fill: white; -fx-border-color: ffe97f; -fx-border-width: 0 2 0 0;" text="Reservar" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="249.2" />
+      <Button layoutX="249.0" layoutY="490.0" mnemonicParsing="false" onAction="#borrarCampos" prefHeight="40.0" prefWidth="80.0" style="-fx-background-radius: 0 100 100 0; -fx-background-color: D26192; -fx-text-fill: white; -fx-border-color: ffe97f; -fx-border-width: 0 0 0 2;" text="Borrar" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="102.19999999999999" />
       <Label layoutX="50.4" layoutY="183.0" prefHeight="30.0" prefWidth="62.0" text="Fecha" AnchorPane.leftAnchor="50.4">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -43,20 +44,24 @@
             <Image url="@../../img/ACTIVIDADES.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="54.0" fitWidth="38.0" layoutX="440.0" layoutY="15.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="448.0" layoutY="13.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/LOGOUT.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="59.0" layoutX="109.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../img/AVATAR.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="labelNombre" layoutX="160.0" layoutY="21.0" text="Username" textFill="#ffe97f">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
+      <HBox alignment="CENTER" layoutX="59.0" prefHeight="66.0" prefWidth="384.0">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/AVATAR.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelNombre" style="-fx-label-padding: 5;" text="Username" textFill="#ffe97f">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

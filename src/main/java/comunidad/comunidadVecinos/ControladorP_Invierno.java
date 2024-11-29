@@ -89,6 +89,8 @@ public class ControladorP_Invierno {
         Actividades actividadSeleccionada36 = tablaActividades36.getSelectionModel().getSelectedItem();
         if (actividadSeleccionada36 == null) {
         	 Actividades actividadSeleccionada710 = tablaActividades710.getSelectionModel().getSelectedItem();
+        	 modelo_DAO.ReservarPlaza rp = new modelo_DAO.ReservarPlaza();
+        	 if ((rp.comprobarReservas(actividadSeleccionada710.getIdHorario(), Usuario_global.getInstance().getVivienda())) == 0) {
              int idHorario710 = actividadSeleccionada710.getIdHorario();
      		int plazas710 = contador;
      		String vivienda710 = Usuario_global.getInstance().getVivienda();
@@ -115,9 +117,15 @@ public class ControladorP_Invierno {
      					// TODO Auto-generated catch block
      					e.printStackTrace();
      				}
+     				}
      			}
+     		}else {
+     			Alertas al = new Alertas();
+     			al.alertaError("Ya tienes plazas reservadas para esta actividad");
      		}
         }else {
+        	modelo_DAO.ReservarPlaza rp = new modelo_DAO.ReservarPlaza();
+       	 if ((rp.comprobarReservas(actividadSeleccionada36.getIdHorario(), Usuario_global.getInstance().getVivienda())) == 0) {
         	int idHorario36 = actividadSeleccionada36.getIdHorario();
     		int plazas36 = contador;
     		String vivienda36 = Usuario_global.getInstance().getVivienda();
@@ -146,7 +154,11 @@ public class ControladorP_Invierno {
     				}
     			}
     		}
+       	 }else{
+       		Alertas al = new Alertas();
+ 			al.alertaError("Ya tienes plazas reservadas para esta actividad");
         }
+       	 }
     }
 
     

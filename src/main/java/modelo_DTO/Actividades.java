@@ -12,6 +12,8 @@ public class Actividades {
 	private String HoraFin;
 	private int Epoca;
 	private int Plazas;
+	private int PlazasReservadas;
+	private int idRelacion;
 	
 	public int getIdActividad() {
 		return IdActividad;
@@ -96,5 +98,17 @@ public class Actividades {
 	}
 	public void setIdHorario(int idHorario) {
 		IdHorario = idHorario;
+	}
+	public int getPlazasReservadas() {
+		return PlazasReservadas;
+	}
+	public void setPlazasReservadas(int plazasReservadas) {
+		PlazasReservadas = plazasReservadas;
+	}
+	public int getIdRelacion() {
+		return idRelacion;
+	}
+	public void setIdRelacion(int idRelacion) {
+		this.idRelacion = idRelacion;
 	};
 }
