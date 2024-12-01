@@ -131,7 +131,7 @@ public class ControladorP_Calendario {
             String textoDia = actividadesDia.toString();
 
             StackPane diaPane = new StackPane();
-            if (!textoDia.isEmpty()) {
+            if (!textoDia.isEmpty() && diaactual.isAfter(LocalDate.now())) {
                 Label labelDia = new Label((i + 1) + "\n" + textoDia);
                 Button botonDetalles = new Button("Ver más");
                 botonDetalles.setStyle("-fx-background-color: #D26192; -fx-background-radius: 100; -fx-text-fill: white;");
@@ -151,7 +151,7 @@ public class ControladorP_Calendario {
                 int diaCumple = fechaCumple.getDayOfMonth();
 
                 if (diaCumple == i + 1) {
-                    Label cumpleLabel = new Label("Cumpleaños");
+                    Label cumpleLabel = new Label("\n\nCumpleaños");
                     cumpleLabel.setTextFill(Color.RED);
                     diaPane.getChildren().add(cumpleLabel);
                     break;
@@ -190,7 +190,7 @@ public class ControladorP_Calendario {
 
     private void cargarCumpleaños() {
         cumpleaños = new ArrayList<>();
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/comunidad?useSSL=false", "root", "")) {
+        try (Connection connection = Utilidades.Util.dameConexion()) {
             String query = "SELECT fecha FROM reservas WHERE MONTH(fecha) = ? AND YEAR(fecha) = ?";
             try (PreparedStatement pstmt = connection.prepareStatement(query)) {
                 pstmt.setInt(1, mesActual.getMonthValue());
