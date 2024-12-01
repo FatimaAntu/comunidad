@@ -65,13 +65,11 @@ public class ControladorP_Cumpleanos {
             LocalTime hora = LocalTime.parse(horaStr, DateTimeFormatter.ISO_TIME);
             int asistentes = Integer.parseInt(asistentesStr);
 
-            // Validación fecha, debe ser más reciente que la fecha actual
             if (fecha.isBefore(LocalDate.now())) {
                 mostrarAlerta("Error", "La fecha no puede ser más antigua que la actual.", Alert.AlertType.ERROR);
                 return;
             }
 
-            // Validación número asistentes, debe ser mayor que 0
             if (asistentes <= 0) {
                 mostrarAlerta("Error", "El número de asistentes debe ser mayor que 0.", Alert.AlertType.ERROR);
                 return;
@@ -91,6 +89,7 @@ public class ControladorP_Cumpleanos {
             e.printStackTrace();
         }
     }
+
 
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alerta = new Alert(tipo);

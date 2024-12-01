@@ -6,18 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import modelo_DTO.Actividades;
-import modelo_DTO.Usuarios;
 
 public class ListarActividadesCalendario {
     public ArrayList<Actividades> ActividadesReservadasPorDia(String Vivienda, LocalDate diaactual) {
-        String sql = "SELECT rv.IdRelacion, rv.IdHorario, rv.Plazasreservadas, h.Fecha, h.HoraInicio, h.HoraFin, h.Plazas, a.NombreActividad " +
-                     "FROM rel_vivienda rv " +
-                     "JOIN horario h ON rv.IdHorario = h.IdHorario " +
-                     "JOIN actividades a ON h.IdActividad = a.IdActividad " +
-                     "WHERE rv.Vivienda = ? AND h.Fecha = ?";
-        
+    	 String sql = "SELECT rv.IdRelacion, rv.IdHorario, rv.Plazasreservadas, h.Fecha, h.HoraInicio, h.HoraFin, h.Plazas, a.NombreActividad " +
+                 "FROM rel_vivienda rv " +
+                 "JOIN horario h ON rv.IdHorario = h.IdHorario " +
+                 "JOIN actividades a ON h.IdActividad = a.IdActividad " +
+                 "WHERE rv.Vivienda = ? AND h.Fecha = ?";
+
         ArrayList<Actividades> actividades = new ArrayList<>();
 
         try (Connection conn = Utilidades.Util.dameConexion();

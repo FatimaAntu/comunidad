@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import modelo_DAO.InicioSesion;
 import modelo_DTO.Usuarios;
 
 public class App extends Application {
