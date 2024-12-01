@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_ListaSugerencias">
+   <children>
+      <Region prefHeight="66.0" prefWidth="499.0" style="-fx-background-color: D26192;" />
+    
+      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarCalendario" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/FLECHA.png" />
+         </image>
+      </ImageView>
+     
+      <TableView fx:id="tablaSugerencias" layoutX="42.0" layoutY="132.0" prefHeight="370.0" prefWidth="417.0">
+         <columns>
+            <TableColumn fx:id="colTexto" prefWidth="417.59998321533203" />
+            <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
+         </columns>
+      </TableView>
+      
+      <!-- Botón para crear sugerencia -->
+      <Button layoutX="15.0" layoutY="513.0" mnemonicParsing="false" onAction="#cargarAgregarSugerencia" prefHeight="51.0" prefWidth="218.0" style="-fx-background-radius: 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Crear Sugerencia">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      
+      <!-- Botón para denunciar sugerencia -->
+      <Button layoutX="266.0" layoutY="513.0" mnemonicParsing="false" onAction="#denunciarSugerencia" prefHeight="51.0" prefWidth="218.0" style="-fx-background-radius: 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Denunciar Sugerencia">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      
+      <ImageView fitHeight="93.0" fitWidth="404.0" layoutX="39.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/TituloSugerencias.png" />
+         </image>
+      </ImageView>
+      
+      <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="450.0" layoutY="12.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/LOGOUT.png" />
+         </image>
+      </ImageView>
+      
+      <Label layoutX="224.0" layoutY="21.0" text="" textFill="#ffe97f">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      
+      <ImageView fitHeight="40.0" fitWidth="59.0" layoutX="109.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/AVATAR.png" />
+         </image>
+      </ImageView>
+      
+      <Label fx:id="labelNombre" layoutX="160.0" layoutY="21.0" text="Username" textFill="#ffe97f">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

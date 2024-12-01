@@ -96,45 +96,97 @@ public class ControladorP_ListaSugerencias {
 		});
 	}
 
+//	@FXML
+//	private void cargarDenunciarSugerencia() {
+//		Sugerencias sugerenciaSeleccionada = tablaSugerencias.getSelectionModel().getSelectedItem();
+//
+//		if (sugerenciaSeleccionada != null) {
+//			Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+//			confirmacion.setHeaderText(null);
+//			confirmacion.setTitle("Denunciar Sugerencia");
+//			confirmacion.setContentText("¿Estás seguro de que deseas denunciar esta sugerencia?");
+//			Optional<ButtonType> resultado = confirmacion.showAndWait();
+//
+//			if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+//				// Denunciar la sugerencia en la base de datos
+//				ListarSugerencias dao = new ListarSugerencias();
+//				boolean exito = dao.denunciarSugerencia(sugerenciaSeleccionada.getIdSugerencia());
+//
+//				if (exito) {
+//					Alert exitoAlerta = new Alert(Alert.AlertType.INFORMATION);
+//					exitoAlerta.setHeaderText(null);
+//					exitoAlerta.setTitle("Denuncia Enviada");
+//					exitoAlerta.setContentText("La sugerencia ha sido denunciada correctamente.");
+//					exitoAlerta.showAndWait();
+//
+//					// Actualizar el estado de denuncia en la lista observable
+//					sugerenciaSeleccionada.setDenunciada(true);
+//					tablaSugerencias.refresh();
+//				} else {
+//					Alert errorAlerta = new Alert(Alert.AlertType.ERROR);
+//					errorAlerta.setHeaderText(null);
+//					errorAlerta.setTitle("Error");
+//					errorAlerta.setContentText("No se pudo denunciar la sugerencia. Inténtalo de nuevo.");
+//					errorAlerta.showAndWait();
+//				}
+//			}
+//		} else {
+//			Alertas a = new Alertas();
+//			a.alertaWarning("Por favor, selecciona una sugerencia para denunciar.");
+//		}
+//	}
+	
 	@FXML
 	private void cargarDenunciarSugerencia() {
-		Sugerencias sugerenciaSeleccionada = tablaSugerencias.getSelectionModel().getSelectedItem();
+	    Sugerencias sugerenciaSeleccionada = tablaSugerencias.getSelectionModel().getSelectedItem();
 
-		if (sugerenciaSeleccionada != null) {
-			Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
-			confirmacion.setHeaderText(null);
-			confirmacion.setTitle("Denunciar Sugerencia");
-			confirmacion.setContentText("¿Estás seguro de que deseas denunciar esta sugerencia?");
-			Optional<ButtonType> resultado = confirmacion.showAndWait();
+	    if (sugerenciaSeleccionada != null) {
+	        // Verificar si ya está denunciada
+	        if (sugerenciaSeleccionada.isDenunciada()) {
+	            Alert alerta = new Alert(Alert.AlertType.WARNING);
+	            alerta.setHeaderText(null);
+	            alerta.setTitle("Denuncia ya registrada");
+	            alerta.setContentText("Esta sugerencia ya ha sido denunciada.");
+	            alerta.showAndWait();
+	            return; // Salir del método
+	        }
 
-			if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
-				// Denunciar la sugerencia en la base de datos
-				ListarSugerencias dao = new ListarSugerencias();
-				boolean exito = dao.denunciarSugerencia(sugerenciaSeleccionada.getIdSugerencia());
+	        // Confirmar si desea denunciar
+	        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+	        confirmacion.setHeaderText(null);
+	        confirmacion.setTitle("Denunciar Sugerencia");
+	        confirmacion.setContentText("¿Estás seguro de que deseas denunciar esta sugerencia?");
+	        Optional<ButtonType> resultado = confirmacion.showAndWait();
 
-				if (exito) {
-					Alert exitoAlerta = new Alert(Alert.AlertType.INFORMATION);
-					exitoAlerta.setHeaderText(null);
-					exitoAlerta.setTitle("Denuncia Enviada");
-					exitoAlerta.setContentText("La sugerencia ha sido denunciada correctamente.");
-					exitoAlerta.showAndWait();
+	        if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+	            // Denunciar la sugerencia en la base de datos
+	            ListarSugerencias dao = new ListarSugerencias();
+	            boolean exito = dao.denunciarSugerencia(sugerenciaSeleccionada.getIdSugerencia());
 
-					// Actualizar el estado de denuncia en la lista observable
-					sugerenciaSeleccionada.setDenunciada(true);
-					tablaSugerencias.refresh();
-				} else {
-					Alert errorAlerta = new Alert(Alert.AlertType.ERROR);
-					errorAlerta.setHeaderText(null);
-					errorAlerta.setTitle("Error");
-					errorAlerta.setContentText("No se pudo denunciar la sugerencia. Inténtalo de nuevo.");
-					errorAlerta.showAndWait();
-				}
-			}
-		} else {
-			Alertas a = new Alertas();
-			a.alertaWarning("Por favor, selecciona una sugerencia para denunciar.");
-		}
+	            if (exito) {
+	                Alert exitoAlerta = new Alert(Alert.AlertType.INFORMATION);
+	                exitoAlerta.setHeaderText(null);
+	                exitoAlerta.setTitle("Denuncia Enviada");
+	                exitoAlerta.setContentText("La sugerencia ha sido denunciada correctamente.");
+	                exitoAlerta.showAndWait();
+
+	                // Actualizar el estado de denuncia en la lista observable
+	                sugerenciaSeleccionada.setDenunciada(true);
+	                tablaSugerencias.refresh();
+	            } else {
+	                Alert errorAlerta = new Alert(Alert.AlertType.ERROR);
+	                errorAlerta.setHeaderText(null);
+	                errorAlerta.setTitle("Error");
+	                errorAlerta.setContentText("No se pudo denunciar la sugerencia. Inténtalo de nuevo.");
+	                errorAlerta.showAndWait();
+	            }
+	        }
+	    } else {
+	        Alertas a = new Alertas();
+	        a.alertaWarning("Por favor, selecciona una sugerencia para denunciar.");
+	    }
 	}
+
 
 	@FXML
 	private void cargarAgregarSugerencia() throws IOException {

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585" prefWidth="499" style="-fx-background-color: B3DFFF;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_RecuperacionContrasenia">
+   <children>
+      <!-- Fondo de la barra superior -->
+      <Region prefHeight="66.0" prefWidth="499.0" style="-fx-background-color: D26192;" />
+
+      <!-- Flecha de regreso -->
+      <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#cargarPanterior" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/FLECHA.png" />
+         </image>
+      </ImageView>
+
+
+      <!-- Campos de texto con bordes redondeados -->
+      <Label layoutX="161.0" layoutY="108.0" prefHeight="30.0" prefWidth="168.0" text="Nombre de Usuario">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+
+      <TextField fx:id="nombreUsuarioTextField" layoutX="96.0" layoutY="144.0" prefHeight="54.0" prefWidth="298.0" style="-fx-border-color: D26192; -fx-background-color: FCFFF4; -fx-border-width: 2; -fx-border-radius: 100; -fx-background-radius: 100;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+
+      <Button fx:id="mostrarPreguntaButton" layoutX="100.0" layoutY="213.0" onAction="#mostrarPreguntaSeguridad" prefHeight="38.0" prefWidth="298.0" style="-fx-background-radius: 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Mostrar Pregunta de Seguridad">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+
+      <Label fx:id="preguntaLabel" layoutX="121.0" layoutY="262.0" prefHeight="30.0" prefWidth="307.0" text="Pregunta de seguridad aparecerá aquí." wrapText="true" />
+      
+      <TextField fx:id="respuestaTextField" layoutX="102.0" layoutY="308.0" prefHeight="54.0" prefWidth="298.0" promptText="Ingrese su respuesta" style="-fx-background-color: FCFFF4; -fx-border-color: D26192; -fx-border-width: 2; -fx-border-radius: 100; -fx-background-radius: 100;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+
+      <PasswordField fx:id="nuevaContrasenaTextField" layoutX="100.0" layoutY="373.0" prefHeight="54.0" prefWidth="298.0" promptText="Ingrese la nueva contraseña" style="-fx-background-color: FCFFF4; -fx-border-color: D26192; -fx-border-width: 2; -fx-border-radius: 100; -fx-background-radius: 100;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+
+      
+      <Button fx:id="cambiarContrasenaButton" layoutX="100.0" layoutY="454.0" onAction="#cambiarContrasena" prefHeight="38.0" prefWidth="298.0" style="-fx-background-radius: 100; -fx-background-color: D26192; -fx-text-fill: white;" text="Cambiar Contraseña">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

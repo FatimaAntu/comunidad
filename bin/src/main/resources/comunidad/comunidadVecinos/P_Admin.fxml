@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="comunidad.comunidadVecinos.ControladorP_Admin" spacing="15" style="-fx-padding: 20;">
+    <!-- Título con estilo en negrita -->
+    <Text text="Sugerencias Pendientes de Revisión" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    
+    <!-- Tabla para las sugerencias -->
+    <TableView fx:id="tablaSugerenciasPendientes" prefHeight="400" prefWidth="600">
+        <TableColumn fx:id="colTexto" text="Texto de la Sugerencia" />
+    </TableView>
+
+    <!-- Contenedor HBox para los botones, alineados a la derecha -->
+    <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10 0;">
+        <!-- Botones con estilo similar y espaciados -->
+        <Button text="Aprobar Denuncia" onAction="#aprobarDenuncia" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 8 16; -fx-font-size: 14px; -fx-border-radius: 5px;" />
+        <Button text="Rechazar Denuncia" onAction="#rechazarDenuncia" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-padding: 8 16; -fx-font-size: 14px; -fx-border-radius: 5px;" />
+    </HBox>
+</VBox>
+
+
+
